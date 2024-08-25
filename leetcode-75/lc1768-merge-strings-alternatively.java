@@ -4,7 +4,7 @@
  * Return the merged string.
  * 
  */
-class Solution {
+class MergeStringAlternatively {
     public String mergeAlternatively(String word1, String word2) {
         StringBuilder sb = new StringBuilder();
 
@@ -29,11 +29,11 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        MergeStringAlternatively msa = new MergeStringAlternatively();
 
         String word1 = "abc";
         String word2 = "pqr";
 
-        System.out.println(sol.mergeAlternatively(word1, word2));
+        System.out.println(msa.mergeAlternatively(word1, word2));
     }
 }
