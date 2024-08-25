@@ -37,3 +37,7 @@ class MergeStringAlternatively {
         System.out.println(msa.mergeAlternatively(word1, word2));
     }
 }
+
+/**
+ * Time Complexity: O(n + m), where n and m are the lengths of word1 and word2 respectively
+ */

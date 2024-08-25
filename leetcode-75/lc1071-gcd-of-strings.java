@@ -39,3 +39,7 @@ class GCDOfStrings {
         System.out.println(gcd.gcdOfStrings(str5, str6));
     }
 }
+
+/**
+ * Time Complexity: O(n + m)
+ */
