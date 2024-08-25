@@ -22,10 +22,16 @@ public class GreatestCandies {
          * return res
          */
         List<Boolean> result = new ArrayList<>();
+
+        if(candies.length == 0) {
+            return result;
+        }
+
+        int maxCandies = Arrays.stream(candies).max().getAsInt();
         for (int i = 0; i < candies.length; i++) {
             int currentCandies = candies[i];
 
-            result.add(currentCandies + extraCandies >= Arrays.stream(candies).max().getAsInt());
+            result.add(currentCandies + extraCandies >= maxCandies);
         }
         return result;
     }
@@ -65,3 +71,7 @@ public class GreatestCandies {
     }
 }
 
+/**
+ * Time Complexity: O(n)
+ * Space Complexity: O(n)
+ */
