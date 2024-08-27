@@ -1,4 +1,4 @@
-package arrays_strings.lc_605_can_place_flowers;
+package arrays_strings.lc605_can_place_flowers;
 
 public class CanPlaceFlowers {
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
