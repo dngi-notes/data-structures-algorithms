@@ -40,6 +40,16 @@ public class ProductOfArrayExceptSelf {
         int[] nums = {1, 2, 3, 4};
         int[] result = poaes.productExceptSelf(nums);
         System.out.println(Arrays.toString(result));
-        
+
+        /* Example Case (with negative numbers) */
+        int[] nums2 = {-1, 1, 0, -3, 3};
+        int[] result2 = poaes.productExceptSelf(nums2);
+        System.out.println(Arrays.toString(result2));
+
+        /*Edge Case 1 (array of length 1) - Expected Output = [1] */
+        int[] nums3 = {3};
+        int[] result3 = poaes.productExceptSelf(nums3);
+        System.out.println(Arrays.toString(result3));
+
     }
 }
