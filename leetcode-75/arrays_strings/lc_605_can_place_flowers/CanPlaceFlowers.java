@@ -46,5 +46,15 @@ public class CanPlaceFlowers {
         int[] input4 = {};
         int n4 = 1;
         System.out.println(sol.canPlaceFlowers(input4, n4));
+
+        /* Edge Case 3: array is all 1s and n = 0 - Expected Output: true */
+        int[] input5 = {1, 1, 1, 1, 1};
+        int n5 = 0;
+        System.out.println(sol.canPlaceFlowers(input5, n5));
+
+        /* Edge Case 4: array is all 1s and n >= 1 - Expected Output: false */
+        int[] input6 = {1, 1, 1, 1, 1};
+        int n6 = 1;
+        System.out.println(sol.canPlaceFlowers(input6, n6));
     }
 }
