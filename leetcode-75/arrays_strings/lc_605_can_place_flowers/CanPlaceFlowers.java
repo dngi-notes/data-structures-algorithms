@@ -83,7 +83,7 @@ public class CanPlaceFlowers {
 
         /* Edge Case 8: all 0s but n > than possible - Expected Output: false */
         int[] input10 = { 0, 0, 0, 0, 0 };
-        int n10 = 3;
+        int n10 = 4;
         System.out.println(sol.canPlaceFlowers(input10, n10));
 
         /* Edge Case 9: Alternating 0s and 1s, where n >= 1 - Expected Output: false */
