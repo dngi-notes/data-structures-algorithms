@@ -10,21 +10,36 @@ public class ReverseWords {
      * two words. The returned string should only have a single space separating the
      * words. Do not include any extra spaces.
      */
-
     public String reverseWords(String s) {
+        if(s == null || s.length() <= 1) {
+            return s;
+        } 
+
         String[] words = s.trim().split("\\s+");
 
-       StringBuilder sb = new StringBuilder();
-       for(int i = words.length - 1; i > 0; i--) {
-        sb.append(words[i]).append(" ");
-       }
-       return sb.toString() + words[0];
-}
+        StringBuilder sb = new StringBuilder();
+        for (int i = words.length - 1; i > 0; i--) {
+            sb.append(words[i]).append(" ");
+        }
+        return sb.toString() + words[0];
+    }
 
     public static void main(String[] args) {
         ReverseWords reverseWords = new ReverseWords();
 
         String s = "the sky is blue";
         System.out.println(reverseWords.reverseWords(s));
+
+        String s2 = "a good   example";
+        System.out.println(reverseWords.reverseWords(s2));
+
+        String s3 = "";
+        System.out.println(reverseWords.reverseWords(s3));
+
+        String s4 = null;
+        System.out.println(reverseWords.reverseWords(s4));
+
+        String s5 = "word";
+        System.out.println(reverseWords.reverseWords(s5));
     }
 }
