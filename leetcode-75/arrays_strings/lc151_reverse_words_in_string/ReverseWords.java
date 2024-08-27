@@ -53,7 +53,11 @@ public class ReverseWords {
         System.out.println(reverseWords.reverseWords(s5));
 
         /* Edge Case 4 (leading and trailing spaces) - Expected Output: world hello */
-        String s6 = "  world hello  ";
+        String s6 = "  hello world  ";
         System.out.println(reverseWords.reverseWords(s6));
+
+        /* Edge Case 5 (only spaces) - Expected output: empty string */
+        String s7 = "   ";
+        System.out.println(reverseWords.reverseWords(s7));
     }
 }
