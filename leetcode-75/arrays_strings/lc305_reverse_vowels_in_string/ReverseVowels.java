@@ -1,7 +1,5 @@
 package arrays_strings.lc305_reverse_vowels_in_string;
 
-import java.util.Arrays;
-
 /** Given a string s, reverse only all the vowels in the string and return it.
  * The vowels are 'a', 'e', 'i', 'o', and 'u', 
  * and they can appear in both lower and upper cases, more than once. */
@@ -12,7 +10,11 @@ public class ReverseVowels {
      * if we have a vowel at left, and a vowel at right swap them
      * keep going until left > right
      */
-    public String reverseVowels(String s) {
+    public String reverseVowels(String s) {        
+        if(s == null || s.length() == 0) {
+            return s;
+        }
+        
         int left = 0;
         int right = s.length() - 1;
         char[] chars = s.toCharArray();
@@ -26,14 +28,13 @@ public class ReverseVowels {
                     left++;
                 }
                 if(!isVowel(rightChar)) {
-                    right++;
+                    right--;
                 }
                 continue;
             }
 
-            char temp = chars[left];
-            chars[left] = chars[right];
-            chars[right] = temp;
+            chars[left] = rightChar;
+            chars[right] = leftChar;
 
             left++;
             right--;
@@ -53,7 +54,12 @@ public class ReverseVowels {
       public static void main(String[] args) {
         ReverseVowels rv = new ReverseVowels();
 
+        // Example case 1 - Expected Output: holle
         String s1 = "hello";
-        System.out.println(rv.reverseVowels(s1)); 
+        System.out.println(rv.reverseVowels(s1));
+
+        // Example case 2 - Expected Output: loetcede
+        String s2 = "leetcode";
+        System.out.println(rv.reverseVowels(s2));
       }
 }
