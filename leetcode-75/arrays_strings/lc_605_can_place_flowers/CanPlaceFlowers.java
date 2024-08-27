@@ -76,5 +76,10 @@ public class CanPlaceFlowers {
         int[] input10 = {0, 0, 0, 0, 0};
         int n10 = 3;
         System.out.println(sol.canPlaceFlowers(input10, n10));
+
+        /* Edge Case 9: Alternating 0s and 1s, where n >= 1 - Expected Output: false */
+        int[] input11 = {1, 0, 1, 0, 1, 0, 1};
+        int n11 = 1;
+        System.out.println(sol.canPlaceFlowers(input11, n11));
     }
 }
