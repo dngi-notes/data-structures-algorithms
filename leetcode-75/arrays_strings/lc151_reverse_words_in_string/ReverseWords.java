@@ -59,5 +59,13 @@ public class ReverseWords {
         /* Edge Case 5 (only spaces) - Expected output: empty string */
         String s7 = "   ";
         System.out.println(reverseWords.reverseWords(s7));
+
+        /* Edge Case 6 (string with numbers) - Expected output: 456 123 */
+        String s8 = "123 456";
+        System.out.println(reverseWords.reverseWords(s8));
+
+        /* Edge Case 7 (String with special characters) - Expected Output: World! Hello, */
+        String s9 = "Hello, World!";
+        System.out.println(reverseWords.reverseWords(s9));
     }
 }
