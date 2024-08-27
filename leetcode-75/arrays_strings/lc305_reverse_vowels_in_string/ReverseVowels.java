@@ -54,12 +54,20 @@ public class ReverseVowels {
       public static void main(String[] args) {
         ReverseVowels rv = new ReverseVowels();
 
-        // Example case 1 - Expected Output: holle
+        /*  Example case 1 - Expected Output: holle */
         String s1 = "hello";
         System.out.println(rv.reverseVowels(s1));
 
-        // Example case 2 - Expected Output: loetcede
+        /* Example case 2 - Expected Output loetcede */
         String s2 = "leetcode";
         System.out.println(rv.reverseVowels(s2));
+
+        /* Edge case 1: Empty and null - Expected output "" + null */
+        String s3 = "";
+        String s4 = null;
+        System.out.println(rv.reverseVowels(s3));
+        System.out.println(rv.reverseVowels(s4));
+
+        /* Edge case 2: No vowels - Expected output*/
       }
 }
