@@ -79,5 +79,10 @@ public class ReverseVowels {
         /* Edge case 4: Only one vowel - Expected output: king */
         String s7 = "king";
         System.out.println(rv.reverseVowels(s7));
+
+        /* Edge case 5: String with repeated vowels - Expected output hooloooee */
+        String s8 = "heelloooooo";
+        System.out.println(rv.reverseVowels(s8));
+
       }
 }
