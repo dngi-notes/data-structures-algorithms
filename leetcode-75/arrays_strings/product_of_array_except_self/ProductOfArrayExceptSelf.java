@@ -60,5 +60,30 @@ public class ProductOfArrayExceptSelf {
         int[] nums5 = {0, 0, 0, 0};
         int[] result5 = poaes.productExceptSelf(nums5);
         System.out.println(Arrays.toString(result5));
+
+        /* Edge Case 4 (array of only ones) - Expected Output: [1, 1, 1, 1] */
+        int[] nums6 = {1, 1, 1, 1};
+        int[] result6 = poaes.productExceptSelf(nums6);
+        System.out.println(Arrays.toString(result6));
+
+        /* Edge Case 5 (array with one negative) - Expected Output: [-24, -12, -8, 6] */
+        int[] nums7 = {1, 2, 3, -4};
+        int[] result7 = poaes.productExceptSelf(nums7);
+        System.out.println(Arrays.toString(result7));
+
+        /* Edge Case 6 (all negatives) - Expected Result [-24, -12, -8, -6] */
+        int[] nums8 = {-1, -2, -3, -4};
+        int[] result8 = poaes.productExceptSelf(nums8);
+        System.out.println(Arrays.toString(result8));
+
+        /* Edge Case 7 (array with large numbers) - Expected Output: Integer overflow will cause the answer to be wrong (can be fixed by using a long integer instead) */ 
+        int[] nums9 = {100000, 200000, 300000, 400000};
+        int[] result9 = poaes.productExceptSelf(nums9);
+        System.out.println(Arrays.toString(result9));
+
+        /* Edge Case 8 (array with alternating positives and negatives) - Expected Output: [1, -1, 1, -1] */
+        int[] nums10 = {1, -1, 1, -1};
+        int[] result10 = poaes.productExceptSelf(nums10);
+        System.out.println(Arrays.toString(result10));
     }
 }
