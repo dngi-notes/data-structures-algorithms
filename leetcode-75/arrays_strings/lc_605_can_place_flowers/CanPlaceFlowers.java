@@ -41,5 +41,10 @@ public class CanPlaceFlowers {
         int[] input3 = {};
         int n3 = 0;
         System.out.println(sol.canPlaceFlowers(input3, n3));
+
+        /* Edge Case 2: empty array and n >= 1 - Expected Output: false */
+        int[] input4 = {};
+        int n4 = 1;
+        System.out.println(sol.canPlaceFlowers(input4, n4));
     }
 }
