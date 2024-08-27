@@ -72,6 +72,12 @@ public class ReverseVowels {
         String s5 = "fly";
         System.out.println(rv.reverseVowels(s5));
 
-        
+        /* Edge case 3: Only Vowels - Expected output: uoiea */
+        String s6 = "aeiou";
+        System.out.println(rv.reverseVowels(s6));
+
+        /* Edge case 4: Only one vowel - Expected output: king */
+        String s7 = "king";
+        System.out.println(rv.reverseVowels(s7));
       }
 }
