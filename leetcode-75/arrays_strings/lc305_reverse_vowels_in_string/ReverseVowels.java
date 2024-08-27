@@ -68,6 +68,10 @@ public class ReverseVowels {
         System.out.println(rv.reverseVowels(s3));
         System.out.println(rv.reverseVowels(s4));
 
-        /* Edge case 2: No vowels - Expected output*/
+        /* Edge case 2: No vowels - Expected output: fly*/
+        String s5 = "fly";
+        System.out.println(rv.reverseVowels(s5));
+
+        
       }
 }
