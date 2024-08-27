@@ -36,20 +36,29 @@ public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         ProductOfArrayExceptSelf poaes = new ProductOfArrayExceptSelf();
 
-        /* Example 1 - Expected Output: 24, 12, 8, 6 */
+        /* Example 1 - Expected Output: [24, 12, 8, 6] */
         int[] nums = {1, 2, 3, 4};
         int[] result = poaes.productExceptSelf(nums);
         System.out.println(Arrays.toString(result));
 
-        /* Example Case (with negative numbers) */
+        /* Example Case (with negative numbers) - Expected Output: [0, 0, 9, 0, 0] */
         int[] nums2 = {-1, 1, 0, -3, 3};
         int[] result2 = poaes.productExceptSelf(nums2);
         System.out.println(Arrays.toString(result2));
 
-        /*Edge Case 1 (array of length 1) - Expected Output = [1] */
+        /* Edge Case 1 (array of length 1) - Expected Output: = [1] */
         int[] nums3 = {3};
         int[] result3 = poaes.productExceptSelf(nums3);
         System.out.println(Arrays.toString(result3));
 
+        /* Edge Case 2 (array of length 0) - Expected Output: = [] */
+        int[] nums4 = {};
+        int[] result4 = poaes.productExceptSelf(nums4);
+        System.out.println(Arrays.toString(result4));
+
+        /* Edge Case 3 (array of only zeroes) - Expected Output: [0, 0, 0, 0] */
+        int[] nums5 = {0, 0, 0, 0};
+        int[] result5 = poaes.productExceptSelf(nums5);
+        System.out.println(Arrays.toString(result5));
     }
 }
