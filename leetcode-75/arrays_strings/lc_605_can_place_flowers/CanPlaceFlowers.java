@@ -61,5 +61,10 @@ public class CanPlaceFlowers {
         int[] input7 = {0};
         int n7 = 1;
         System.out.println(sol.canPlaceFlowers(input7, n7));
+
+        /* Edge Case 6: array is of length 1 (with flower) and n >= 1 - Expected Output: false */
+        int[] input8 = {1};
+        int n8 = 1;
+        System.out.println(sol.canPlaceFlowers(input8, n8));
     }
 }
