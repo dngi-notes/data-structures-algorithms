@@ -51,5 +51,9 @@ public class ReverseWords {
         /* Edge Case 3 (single word) - Expected output: word */
         String s5 = "word";
         System.out.println(reverseWords.reverseWords(s5));
+
+        /* Edge Case 4 (leading and trailing spaces) - Expected Output: world hello */
+        String s6 = "  world hello  ";
+        System.out.println(reverseWords.reverseWords(s6));
     }
 }
