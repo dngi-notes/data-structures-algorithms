@@ -9,7 +9,7 @@ public class CanPlaceFlowers {
             if (flowerbed[i] == 0) {
 
                 boolean left = (i == 0) || (flowerbed[i - 1] == 0);
-                boolean right = (length - 1 == 0) || (flowerbed[i + 1] == 0);
+                boolean right = (i == length - 1) || (flowerbed[i + 1] == 0);
 
                 if (left && right) {
                     flowerbed[i] = 1;
@@ -66,5 +66,10 @@ public class CanPlaceFlowers {
         int[] input8 = {1};
         int n8 = 1;
         System.out.println(sol.canPlaceFlowers(input8, n8));
+
+        /* Edge Case 7: array is of length 1 (no flower) and n > 1 - Expected Output: false */
+        int[] input9 = {0};
+        int n9 = 2;
+        System.out.println(sol.canPlaceFlowers(input9, n9));
     }
 }
