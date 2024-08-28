@@ -21,13 +21,41 @@ public class StringCompression {
      */
 
     public int compress(char[] chars) {
-        
+        /**
+         * have a pointer l to stay at the start 
+         * and a pointer r that will go over the rest of the characters to get the count
+         * if the character at r is the same as l, increase the count
+         * else add the character and it's count to a String
+         * return the length of the string at the end
+         */
+
+         int iterator = 0;
+         int writer = 0;
+
+         while(iterator < chars.length) {
+            int count = 0;
+            char currentChar = chars[iterator];
+
+            while(iterator < chars.length && chars[iterator] == currentChar) {
+                count++;
+                iterator++;
+            }
+            chars[writer++] = currentChar;
+            if(count > 1) {
+                for(char c: Integer.toString(count).toCharArray()) {
+                    chars[writer++] = c;
+                }
+            }
+            iterator = writer + 1;
+         }
+         return writer;
     }
 
     public static void main(String[] args) {
         StringCompression sc = new StringCompression();
 
+        /* Example 1: Expected Result: 6, because length of a2b2c3 is 6 */
         char[] chars = {'a', 'a', 'b', 'b', 'c', 'c', 'c'};
-        sc.compress(chars);
+        System.out.println(sc.compress(chars));
     }
 }
