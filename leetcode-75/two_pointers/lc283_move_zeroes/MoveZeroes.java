@@ -51,6 +51,29 @@ public class MoveZeroes {
         mz.moveZeroes(nums3);
         System.out.println(Arrays.toString(nums3));
 
-        
+        /* Edge Case 2: Array with no zeroes - returns: [1, 2, 3, 4, 5] */
+        int[] nums4 = {1, 2, 3, 4, 5};
+        mz.moveZeroes(nums4);
+        System.out.println(Arrays.toString(nums4));
+
+        /* Edge Case 3: Array with only zeroes - returns: [0, 0, 0, 0, 0] */
+        int[] nums5 = {0, 0, 0, 0, 0};
+        mz.moveZeroes(nums5);
+        System.out.println(Arrays.toString(nums5));
+
+        /* Edge Case 4: Array with zeroes at the start - returns: [1, 3, 2, 0, 0] */
+        int[] nums6 = {0, 0, 1, 3, 2};
+        mz.moveZeroes(nums6);
+        System.out.println(Arrays.toString(nums6));
+
+        /* Edge Case 5: Array with zeroes in the middle - returns: [5, 6, 7, 0, 0] */
+        int[] nums7 = {5, 0, 6, 0, 7};
+        mz.moveZeroes(nums7);
+        System.out.println(Arrays.toString(nums7));
+
+        /* Edge Case 6: Single Element Non-Zero - returns: [1] */
+        int[] nums8 = {1};
+        mz.moveZeroes(nums8);
+        System.out.println(Arrays.toString(nums8));
      }
 }
