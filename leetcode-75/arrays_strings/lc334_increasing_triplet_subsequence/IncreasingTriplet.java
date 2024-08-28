@@ -47,5 +47,9 @@ public class IncreasingTriplet {
         /* Edge Case 2 (Array of Length < 3) - Expected Output: false */
         int[] nums5 = {1, 2};
         System.out.println(it.increasingTriplet(nums5));
+
+        /* Edge Case 2 (Array where elements are the same) - Expected Output: false */
+        int[] nums6 = {2, 2, 2, 2, 2};
+        System.out.println(it.increasingTriplet(nums6));
     }
 }
