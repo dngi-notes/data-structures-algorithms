@@ -36,7 +36,7 @@ public class IsSubsequence {
         int right = 0;
 
         while (right < t.length()) {
-            if (right < t.length() && s.charAt(left) == t.charAt(right)) {
+            if (left < s.length() && s.charAt(left) == t.charAt(right)) {
                 left++;
             }
             right++;
