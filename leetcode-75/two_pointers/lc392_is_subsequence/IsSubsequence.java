@@ -20,6 +20,23 @@ public class IsSubsequence {
          * else false
          */
 
-         
+         int left = 0;
+         int right = 0;
+
+         while(right < t.length()) {
+            if(right < t.length() && s.charAt(left) == t.charAt(right)) {
+                left++;
+            }
+            right++;
+         }
+         return left == s.length();
+     }
+
+     public static void main(String[] args) {
+        IsSubsequence is = new IsSubsequence();
+        String s1 = "abc";
+        String t1 = "ahbgdc";
+
+        System.out.println(is.isSubsequence(s1, t1));
      }
 }
