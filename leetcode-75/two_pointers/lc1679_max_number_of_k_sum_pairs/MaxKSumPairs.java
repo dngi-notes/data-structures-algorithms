@@ -12,13 +12,6 @@ public class MaxKSumPairs {
      */
 
     public int maxOperations(int[] nums, int k) {
-        /*
-         * use a hashmap and map each number to its frequency
-         * then loop over with two pointers
-         * the left pointer will search for the hashmap's key and the right pointer will check for the value
-         * if it is found, remove that pair
-         */
-
          Map<Integer, Integer> numFreq = new HashMap<>();
          int operations = 0;
 
@@ -43,5 +36,9 @@ public class MaxKSumPairs {
         int k1 = 5;
         System.out.println(maxK.maxOperations(nums1, k1));
 
+        /* Example 2 - Expected Output: 1 */
+        int[] nums2 = {3, 1, 3, 4, 3};
+        int k2 = 6;
+        System.out.println(maxK.maxOperations(nums2, k2));
     }
 }
