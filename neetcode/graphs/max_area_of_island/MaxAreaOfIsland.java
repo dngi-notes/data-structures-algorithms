@@ -46,6 +46,11 @@ public class MaxAreaOfIsland {
         return area;
     }
 
+    /*
+     * time complexity: O(m * n)
+     * space complexity: O(m * n)
+     */
+
     public static void main(String[] args) {
         String output = "Output: ";
         MaxAreaOfIsland maxAreaOfIsland = new MaxAreaOfIsland();
