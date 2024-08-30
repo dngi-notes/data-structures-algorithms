@@ -33,6 +33,11 @@ public class MaxKSumPairs {
         return operations;
     }
 
+    /*
+     * time complexity: O(n log n)
+     * space complexity O(1)
+     */
+
     public static void main(String[] args) {
         MaxKSumPairs maxK = new MaxKSumPairs();
 
