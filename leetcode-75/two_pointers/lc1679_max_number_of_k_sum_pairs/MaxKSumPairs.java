@@ -29,9 +29,19 @@ public class MaxKSumPairs {
                 numFreq.put(complement, numFreq.get(complement) - 1);
 
             } else {
-                numFreq.put(complement, numFreq.getOrDefault(complement, 0) + 1);
+                numFreq.put(num, numFreq.getOrDefault(num, 0) + 1);
             }
          }
         return operations;
+    }
+
+    public static void main(String[] args) {
+        MaxKSumPairs maxK = new MaxKSumPairs();
+
+        /* Example 1 - Expected Output: 2 */
+        int[] nums1 = {1, 2, 3, 4};
+        int k1 = 5;
+        System.out.println(maxK.maxOperations(nums1, k1));
+
     }
 }
