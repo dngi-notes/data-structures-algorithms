@@ -49,7 +49,7 @@ public class MaxAverage {
         // Edge cases
         int[] nums3 = {};
         int k3 = 1;
-        System.out.println(output + ma.findMaxAverage(nums3, k3));
+        System.out.println(output + ma.findMaxAverage(nums3, k3)); // expected output: 0
 
         int[] nums4 = { -1, -2, -3, -4 };
         int k4 = 2;
@@ -61,6 +61,6 @@ public class MaxAverage {
 
         int[] nums6 = { 1, 2, 3 };
         int k6 = 4;
-        System.out.println(output + ma.findMaxAverage(nums6, k6));
+        System.out.println(output + ma.findMaxAverage(nums6, k6)); // expected output: 0
     }
 }
