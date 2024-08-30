@@ -46,5 +46,16 @@ public class MaxAreaOfIsland {
         return area;
     }
 
-    
+    public static void main(String[] args) {
+        MaxAreaOfIsland maxAreaOfIsland = new MaxAreaOfIsland();
+
+        int[][] grid1 = {
+            {0, 1, 1, 0, 1},
+            {1, 0, 1, 0, 1},
+            {0, 1, 1, 0, 1},
+            {0, 1, 0, 0, 1},
+        };
+
+        System.out.println("Output: " + maxAreaOfIsland.maxAreaOfIsland(grid1));
+    }
 }
