@@ -1,4 +1,4 @@
-package two_pointers.lc1679_max_number_of_k_sum_pairs;
+package two_pointers.lc1679_max_number_of_k_sum_pairs.hashmap_solution;
 
 import java.util.HashMap;
 import java.util.Map;
