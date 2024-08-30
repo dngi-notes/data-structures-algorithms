@@ -47,15 +47,51 @@ public class MaxAreaOfIsland {
     }
 
     public static void main(String[] args) {
+        String output = "Output: ";
         MaxAreaOfIsland maxAreaOfIsland = new MaxAreaOfIsland();
-
+        /* Example 1 - Expected Output: 6 */
         int[][] grid1 = {
-            {0, 1, 1, 0, 1},
-            {1, 0, 1, 0, 1},
-            {0, 1, 1, 0, 1},
-            {0, 1, 0, 0, 1},
+                { 0, 1, 1, 0, 1 },
+                { 1, 0, 1, 0, 1 },
+                { 0, 1, 1, 0, 1 },
+                { 0, 1, 0, 0, 1 },
         };
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid1));
 
-        System.out.println("Output: " + maxAreaOfIsland.maxAreaOfIsland(grid1));
+        // Test Case 2 - Empty Grid - Expected Output: 0
+        int[][] grid2 = {};
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid2));
+
+        // Test Case 3 - Single Cell Island - Expected Output: 1
+        int[][] grid3 = {
+                { 1 }
+        };
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid3));
+
+        // Test Case 4 - All Water - Expected Output: 0
+        int[][] grid4 = {
+                { 0, 0, 0 },
+                { 0, 0, 0 },
+                { 0, 0, 0 }
+        };
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid4));
+
+        // Test Case 5 - All Land - Expected Output: 9
+        int[][] grid5 = {
+                { 1, 1, 1 },
+                { 1, 1, 1 },
+                { 1, 1, 1 }
+        };
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid5));
+
+        // Test Case 6 - Multiple Disconnected Islands - Expected Output: 3
+        int[][] grid6 = {
+                { 1, 0, 0, 1 },
+                { 0, 1, 0, 0 },
+                { 0, 0, 1, 1 },
+                { 1, 0, 0, 1 }
+        };
+        System.out.println(output + maxAreaOfIsland.maxAreaOfIsland(grid6));
+
     }
 }
