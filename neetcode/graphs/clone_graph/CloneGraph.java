@@ -56,23 +56,28 @@ public class CloneGraph {
          * 
          * return the newNode
          */
-        
-        if(node == null) {
+
+        if (node == null) {
             return null;
         }
 
-        if(oldToNew.containsKey(node)) {
+        if (oldToNew.containsKey(node)) {
             return oldToNew.get(node);
         }
 
         Node newNode = new Node(node.val);
         oldToNew.put(node, newNode);
 
-        for(Node neighbor: node.neighbors) {
+        for (Node neighbor : node.neighbors) {
             newNode.neighbors.add(deepCopy(neighbor, oldToNew));
         }
         return newNode;
     }
+
+    /*
+     * Time Complexity: (O(V + E))
+     * Space Complexity: (O(V))
+     */
 
     public static void main(String[] args) {
         CloneGraph cg = new CloneGraph();
