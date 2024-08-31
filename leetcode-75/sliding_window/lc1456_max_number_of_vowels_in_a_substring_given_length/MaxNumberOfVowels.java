@@ -50,16 +50,24 @@ public class MaxNumberOfVowels {
     public static void main(String[] args) {
         MaxNumberOfVowels mnov = new MaxNumberOfVowels();
 
+        /*Example 1 -  Expected Output: 3 */
         String s1 = "abciiidef";
         int k1 = 3;
         System.out.println(mnov.maxVowels(s1, k1));
 
+        /* Example 2 - Expected Output: 2 */
         String s2 = "aeiou";
         int k2 = 2;
         System.out.println(mnov.maxVowels(s2, k2));
 
+        /* Example 3 - Expected Output: 2 */
         String s3 = "leetcode";
         int k3 = 3;
         System.out.println(mnov.maxVowels(s3, k3));
+
+        /* Edge Case 1 - Expected Output: 0 */
+        String s4 = "";
+        int k4 = 1;
+        System.out.println(mnov.maxVowels(s4, k4));
     }
 }
