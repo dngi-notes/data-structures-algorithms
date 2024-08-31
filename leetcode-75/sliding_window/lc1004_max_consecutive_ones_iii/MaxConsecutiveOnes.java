@@ -19,6 +19,10 @@ public class MaxConsecutiveOnes {
          * Keep track of the maximum length of the window.
          */
 
+        if(nums.length == 0 || nums == null || k > nums.length) {
+            return 0;
+        }
+
         int left = 0;
         int right = 0;
 
@@ -40,5 +44,20 @@ public class MaxConsecutiveOnes {
             right++;
         }
         return longest;
+    }
+
+    public static void main(String[] args) {
+        MaxConsecutiveOnes mco = new MaxConsecutiveOnes();
+        String output = "Output: ";
+
+        /* Example 1 - Expected Output: 6 */
+        int[] nums1 = {1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
+        int k1 = 2;
+        System.out.println(output + mco.longestOnes(nums1, k1));
+
+        /* Exampel 2 - Expected Output: 10 */
+        int[] nums2 = {0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
+        int k2 = 3;
+        System.out.println(output + mco.longestOnes(nums2, k2));
     }
 }
