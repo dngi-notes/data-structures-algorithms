@@ -28,6 +28,10 @@ public class MaxNumberOfVowels {
             }
         }
 
+        if(k == s.length()) {
+            return vowels;
+        }
+
         int maxVowels = vowels;
         for (int r = k; r < s.length(); r++) {
             if (isVowel(s.charAt(r))) {
