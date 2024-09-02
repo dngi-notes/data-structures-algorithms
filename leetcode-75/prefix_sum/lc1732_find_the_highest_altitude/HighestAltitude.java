@@ -23,4 +23,9 @@ public class HighestAltitude {
 
         return highest;
     }
+
+    /*
+     * TC: O(n)
+     * SC: O(1)
+     */
 }
