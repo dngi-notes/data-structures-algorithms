@@ -46,6 +46,11 @@ public class LongestOnes {
         return longest - 1;
     }
 
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     */
+
     public static void main(String[] args) {
         LongestOnes lo = new LongestOnes();
         String output = "Output: ";
