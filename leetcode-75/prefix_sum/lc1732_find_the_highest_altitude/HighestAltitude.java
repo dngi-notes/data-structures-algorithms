@@ -18,10 +18,7 @@ public class HighestAltitude {
 
         for (int i = 0; i < gain.length; i++) {
             currentAltitude += gain[i];
-            if (currentAltitude > highest) {
-                highest = currentAltitude;
-            }
-
+            highest = Math.max(highest, currentAltitude);
         }
 
         return highest;
