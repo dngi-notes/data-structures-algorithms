@@ -74,5 +74,14 @@ public class FindPivotIndex {
         /* Edge Case 3 (null array) */
         int[] nums6 = null;
         System.out.println(output + pi.pivotIndex(nums6)); // expected output: -1
+
+        /* Edge Case 4 (array with elements of same value - odd length) */
+        int[] nums7 = {5, 5, 5, 5, 5};
+        System.out.println(output + pi.pivotIndex(nums7)); // expected output 2
+
+        /* Edge Case 5 (array with elements of same value - even length) */
+        int[] nums8 = {5, 5, 5, 5, 5, 5};
+        System.out.println(output + pi.pivotIndex(nums8)); // expected output -1
+        
     }
 }
