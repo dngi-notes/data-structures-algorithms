@@ -73,6 +73,20 @@ public class ArrayDifference {
         int[] nums5 = { 1, 2, 3 };
         int[] nums6 = { 1, 2, 3 };
         System.out.println(output + ad.findDifference(nums5, nums6)); // expected output: [], []
-    }
 
+        /* Edge Case 2: (both empty) */
+        int[] nums7 = {};
+        int[] nums8 = {};
+        System.out.println(output + ad.findDifference(nums7, nums8)); // expected output: [], []
+
+        /* Edge Case 3: (one empty) */
+        int[] nums9 = {1, 2, 3};
+        int[] nums10 = {};
+        System.out.println(output + ad.findDifference(nums9, nums10)); // expected output: [1, 2, 3], []
+
+        /* Edge Case 4: (completely distinct elements) */
+        int[] nums11 = {1, 2, 3};
+        int[] nums12 = {4, 5, 6};
+        System.out.println(output + ad.findDifference(nums11, nums12)); // expected output: [1, 2, 3], [4, 5, 6]
+    }
 }
