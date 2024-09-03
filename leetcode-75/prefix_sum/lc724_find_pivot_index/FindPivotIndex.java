@@ -37,10 +37,26 @@ public class FindPivotIndex {
             if(rightSum == leftSum) {
                 return i;
             }
-            
+
             leftSum += nums[i];
         }
 
         return -1;
+    }
+
+    public static void main(String[] args) {
+        FindPivotIndex pi = new FindPivotIndex();
+        String output = "Output: ";
+
+        /* Example 1 */
+        int[] nums1 = {1, 7, 3, 6, 5, 6};
+        System.out.println(output + pi.pivotIndex(nums1)); // expected output: 3
+
+        /* Example 2 */
+        int[] nums2 = {1, 2, 3};
+        System.out.println(output + pi.pivotIndex(nums2)); // expected output: -1
+
+        int[] nums3 = {2, 1, -1};
+        System.out.println(output + pi.pivotIndex(nums3)); // expected output: 0
     }
 }
