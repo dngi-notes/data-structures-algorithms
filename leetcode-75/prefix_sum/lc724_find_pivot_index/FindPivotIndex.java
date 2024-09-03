@@ -18,28 +18,29 @@ public class FindPivotIndex {
      */
     public int pivotIndex(int[] nums) {
         /*
-         * iterate over every number in nums
-         * calculate the sum of the elements strictly left and right
-         * do this until we reach nums.length - 1
-         * return the index if we reach it
+         * get the total sum of the array first
+         * initialise a variable for the left sum
+         * calculate the right sum (total sum - left sum - nums[i])
+         * 
+         * if the left sum and right sum are equal, return the index `i`
          * else return -1
          */
 
-        for (int i = 0; i < nums.length; i++) {
-            int leftSum = 0;
-            for (int j = 0; j < i; j++) {
-                leftSum += nums[j];
-            }
+        int totalSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            totalSum += nums[i];
+        }
 
-            int rightSum = 0;
-            for (int j = i + 1; j < nums.length; j++) {
-                rightSum += nums[j];
-            }
-
-            if (rightSum == leftSum) {
+        int leftSum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            int rightSum = totalSum - leftSum - nums[i];
+            if(rightSum == leftSum) {
                 return i;
             }
+            
+            leftSum += nums[i];
         }
+
         return -1;
     }
 }
