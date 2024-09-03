@@ -92,19 +92,22 @@ public class RottingOranges {
 
         while (!q.isEmpty()) {
             minutesPassed++;
+            int size = q.size();
 
-            int[] cell = q.poll();
-            int row = cell[0];
-            int col = cell[1];
+            for (int i = 0; i < size; i++) {
+                int[] cell = q.poll();
+                int row = cell[0];
+                int col = cell[1];
 
-            for (int[] direction : directions) {
-                int newRow = row + direction[0];
-                int newCol = col + direction[1];
+                for (int[] direction : directions) {
+                    int newRow = row + direction[0];
+                    int newCol = col + direction[1];
 
-                if (newRow >= 0 && newCol >= 0 && newRow < rows && newCol < cols && grid[newRow][newCol] == FRESH) {
-                    grid[newRow][newCol] = ROTTEN;
-                    freshOranges--;
-                    q.offer(new int[] { row, col });
+                    if (newRow >= 0 && newCol >= 0 && newRow < rows && newCol < cols && grid[newRow][newCol] == FRESH) {
+                        grid[newRow][newCol] = ROTTEN;
+                        freshOranges--;
+                        q.offer(new int[] { newRow, newCol });
+                    }
                 }
             }
         }
