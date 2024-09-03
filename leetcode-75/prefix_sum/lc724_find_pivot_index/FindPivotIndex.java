@@ -26,6 +26,10 @@ public class FindPivotIndex {
          * else return -1
          */
 
+        if(nums == null || nums.length == 0) {
+            return -1;
+        }
+
         int totalSum = 0;
         for(int i = 0; i < nums.length; i++) {
             totalSum += nums[i];
@@ -58,5 +62,17 @@ public class FindPivotIndex {
 
         int[] nums3 = {2, 1, -1};
         System.out.println(output + pi.pivotIndex(nums3)); // expected output: 0
+
+        /* Edge Case 1 (array of length 1) */
+        int[] nums4 = { 1 };
+        System.out.println(output + pi.pivotIndex(nums4)); // expected output: 0
+
+        /* Edge Case 2 (Empty array) */
+        int[] nums5 = {};
+        System.out.println(output + pi.pivotIndex(nums5)); // expected output: -1
+
+        /* Edge Case 3 (null array) */
+        int[] nums6 = null;
+        System.out.println(output + pi.pivotIndex(nums6)); // expected output: -1
     }
 }
