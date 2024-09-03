@@ -119,4 +119,59 @@ public class RottingOranges {
         }
     }
 
+    public static void main(String[] args) {
+        RottingOranges solution = new RottingOranges();
+
+        // Test case 1: Basic case with some fresh and rotten oranges
+        int[][] grid1 = {
+                { 2, 1, 1 },
+                { 1, 1, 0 },
+                { 0, 1, 1 }
+        };
+        System.out.println("Test case 1: " + solution.orangesRotting(grid1)); // Expected output: 4
+
+        // Test case 2: All oranges are already rotten
+        int[][] grid2 = {
+                { 2, 2, 2 },
+                { 2, 2, 2 },
+                { 2, 2, 2 }
+        };
+        System.out.println("Test case 2: " + solution.orangesRotting(grid2)); // Expected output: 0
+
+        // Test case 3: No oranges at all
+        int[][] grid3 = {
+                { 0, 0, 0 },
+                { 0, 0, 0 },
+                { 0, 0, 0 }
+        };
+        System.out.println("Test case 3: " + solution.orangesRotting(grid3)); // Expected output: 0
+
+        // Test case 4: Fresh oranges that cannot be reached by rotten ones
+        int[][] grid4 = {
+                { 2, 1, 1 },
+                { 0, 1, 1 },
+                { 1, 0, 1 }
+        };
+        System.out.println("Test case 4: " + solution.orangesRotting(grid4)); // Expected output: -1
+
+        // Test case 5: Single fresh orange
+        int[][] grid5 = {
+                { 1 }
+        };
+        System.out.println("Test case 5: " + solution.orangesRotting(grid5)); // Expected output: -1
+
+        // Test case 6: Single rotten orange
+        int[][] grid6 = {
+                { 2 }
+        };
+        System.out.println("Test case 6: " + solution.orangesRotting(grid6)); // Expected output: 0
+
+        // Test case 7: Mixed grid with no fresh oranges
+        int[][] grid7 = {
+                { 2, 0, 2 },
+                { 0, 2, 0 },
+                { 2, 0, 2 }
+        };
+        System.out.println("Test case 7: " + solution.orangesRotting(grid7)); // Expected output: 0
+    }
 }
