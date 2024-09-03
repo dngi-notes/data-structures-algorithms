@@ -119,6 +119,11 @@ public class RottingOranges {
         }
     }
 
+    /*
+     * time complexity: O(m * n) (note: nested for loop is constant (4 directions))
+     * space complexity: O(m * n), because the grid and queue can hold m * n elements
+     */
+
     public static void main(String[] args) {
         RottingOranges solution = new RottingOranges();
 
