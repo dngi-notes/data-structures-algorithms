@@ -57,5 +57,9 @@ public class UniqueOccurrences {
         /* Edge Case 1 (null array) - Expected Output: false */
         int[] arr4 = null;
         System.out.println(output + uo.uniqueOccurrences(arr4));
+
+        /* Edge Case 2 (empty array) - Expected Output: true */
+        int[] arr5 = {};
+        System.out.println(output + uo.uniqueOccurrences(arr5));
     }
 }
