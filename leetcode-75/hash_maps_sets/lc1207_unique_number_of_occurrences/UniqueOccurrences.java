@@ -18,6 +18,10 @@ public class UniqueOccurrences {
          * if we've seen the freq already, return false
          * else return true
          */
+        if(arr == null) {
+            return false;
+        }
+
         Map<Integer, Integer> freqs = new HashMap<>();
         for (int val : arr) {
             freqs.put(val, freqs.getOrDefault(val, 0) + 1);
@@ -46,6 +50,12 @@ public class UniqueOccurrences {
         int[] arr2 = { 1, 2, 3 };
         System.out.println(output + uo.uniqueOccurrences(arr2));
 
-        /*  */
+        /* Example 3 - Expected Output: true */
+        int[] arr3 = { -3, 0, 1, -3, 1, 1, 1, -3, 10, 0 };
+        System.out.println(output + uo.uniqueOccurrences(arr3));
+
+        /* Edge Case 1 (null array) - Expected Output: false */
+        int[] arr4 = null;
+        System.out.println(output + uo.uniqueOccurrences(arr4));
     }
 }
