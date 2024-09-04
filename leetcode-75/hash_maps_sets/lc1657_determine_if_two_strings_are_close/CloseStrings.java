@@ -54,14 +54,32 @@ public class CloseStrings {
         Map<Integer, Integer> word1FreqCount = new HashMap<>();
         Map<Integer, Integer> word2FreqCount = new HashMap<>();
 
-        for(int freq: word1Freqs.values()) {
+        for (int freq : word1Freqs.values()) {
             word1FreqCount.put(freq, word1FreqCount.getOrDefault(freq, 0) + 1);
         }
 
-        for(int freq: word2Freqs.values()) {
+        for (int freq : word2Freqs.values()) {
             word2FreqCount.put(freq, word2FreqCount.getOrDefault(freq, 0) + 1);
         }
-        
+
         return word1FreqCount.equals(word2FreqCount);
+    }
+
+    public static void main(String[] args) {
+        CloseStrings cs = new CloseStrings();
+        String output = "Output: ";
+
+        // Test cases
+        System.out.println(output + cs.closeStrings("abc", "bca")); // true
+        System.out.println(output + cs.closeStrings("a", "aa")); // false
+        System.out.println(output + cs.closeStrings("cabbba", "abbccc")); // true
+        System.out.println(output + cs.closeStrings("cabbba", "aabbss")); // false
+
+        // Edge cases
+        System.out.println(output + cs.closeStrings("", "")); // true, both strings are empty
+        System.out.println(output + cs.closeStrings("a", "a")); // true, both strings are the same single character
+        System.out.println(output + cs.closeStrings("a", "b")); // false, different single characters
+        System.out.println(output + cs.closeStrings("ab", "ba")); // true, simple swap
+        System.out.println(output + cs.closeStrings("abc", "def")); // false, different characters
     }
 }
