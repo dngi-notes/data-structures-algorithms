@@ -38,6 +38,11 @@ public class UniqueOccurrences {
         return true;
     }
 
+    /*
+     * TC: O(n)
+     * SC: O(n)
+     */
+
     public static void main(String[] args) {
         UniqueOccurrences uo = new UniqueOccurrences();
         String output = "Output: ";
