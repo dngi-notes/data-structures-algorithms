@@ -13,6 +13,17 @@ public class CloseStrings {
      * --> For example, aacabb -> bbcbaa (all a's turn to b's and all b's to a's)
      */
 
-    public boolean closeStrings(String word1, String word2) {
-    }
+     public boolean closeStrings(String word1, String word2) {
+        /* Strings need to be the same length for the operations to be possible */
+
+        /*
+         * create hashmaps to get the frequency of the characters in both strings
+         * if they're the same return true
+         * 
+         * check if the strings have the same set of numbers (keys in the map)
+         * if they are equal return true, else return false
+         * 
+         */
+        
+     }
 }
