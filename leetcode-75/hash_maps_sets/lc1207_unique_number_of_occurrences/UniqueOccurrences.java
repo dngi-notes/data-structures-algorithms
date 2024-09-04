@@ -66,5 +66,13 @@ public class UniqueOccurrences {
         /* Edge Case 2 (empty array) - Expected Output: true */
         int[] arr5 = {};
         System.out.println(output + uo.uniqueOccurrences(arr5));
+
+        /* Edge Case 3 (one element) - Expected Output: true */
+        int[] arr6 = { 1 };
+        System.out.println(output + uo.uniqueOccurrences(arr6));
+
+        /* Edge Case 4 (all elements the same value) - Expected Output: true */
+        int[] arr7 = { 7, 7, 7, 7};
+        System.out.println(output + uo.uniqueOccurrences(arr7));
     }
 }
