@@ -38,7 +38,14 @@ public class UniqueOccurrences {
         UniqueOccurrences uo = new UniqueOccurrences();
         String output = "Output: ";
 
+        /* Example 1 - Expected Output: true */
         int[] arr1 = { 1, 2, 2, 1, 1, 3 };
         System.out.println(output + uo.uniqueOccurrences(arr1));
+
+        /* Example 2 - Expected Output: false */
+        int[] arr2 = { 1, 2, 3 };
+        System.out.println(output + uo.uniqueOccurrences(arr2));
+
+        /*  */
     }
 }
