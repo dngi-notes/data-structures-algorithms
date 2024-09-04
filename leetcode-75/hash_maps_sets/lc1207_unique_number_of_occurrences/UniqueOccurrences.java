@@ -74,5 +74,9 @@ public class UniqueOccurrences {
         /* Edge Case 4 (all elements the same value) - Expected Output: true */
         int[] arr7 = { 7, 7, 7, 7};
         System.out.println(output + uo.uniqueOccurrences(arr7));
+
+        /* Edge Case 5 (with int max and min) - Expected Output: true */
+        int[] arr8 = { Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE };
+        System.out.println(output + uo.uniqueOccurrences(arr8));
     }
 }
