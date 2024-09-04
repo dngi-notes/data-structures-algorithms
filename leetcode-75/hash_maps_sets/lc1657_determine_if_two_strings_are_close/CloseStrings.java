@@ -65,6 +65,11 @@ public class CloseStrings {
         return word1FreqCount.equals(word2FreqCount);
     }
 
+    /*
+     * Time Complexity: O(n + k), where n is the length of the original string and k is the number of unique characters
+     * Space O(n)
+     */
+
     public static void main(String[] args) {
         CloseStrings cs = new CloseStrings();
         String output = "Output: ";
