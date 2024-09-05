@@ -42,12 +42,13 @@ public class PacificAtlantic {
 
         List<List<Integer>> res = new ArrayList<>();
 
+        if (heights == null || heights.length == 0 || heights[0].length == 0) {
+            return res;
+        }
+        
         int rows = heights.length;
         int cols = heights[0].length;
 
-        if (heights == null || rows == 0 || cols == 0) {
-            return res;
-        }
 
         boolean[][] pacific = new boolean[rows][cols];
         boolean[][] atlantic = new boolean[rows][cols];
@@ -107,9 +108,75 @@ public class PacificAtlantic {
             }
         }
     }
+    /*
+     * time complexity: O(m * n)
+     * space complexity: O(m * n)
+     */
+    public static void main(String[] args) {
+        PacificAtlantic pa = new PacificAtlantic();
+        
+        // Test case 1: Simple case
+    int[][] heights1 = {
+        {1, 2, 2, 3, 5},
+        {3, 2, 3, 4, 4},
+        {2, 4, 5, 3, 1},
+        {6, 7, 1, 4, 5},
+        {5, 1, 1, 2, 4}
+    };
+    System.out.println("Test case 1: " + pa.pacificAtlantic(heights1));
+
+    // Test case 2: All cells can flow to both oceans
+    int[][] heights2 = {
+        {1, 1},
+        {1, 1}
+    };
+    System.out.println("Test case 2: " + pa.pacificAtlantic(heights2));
+
+    // Test case 3: No cells can flow to both oceans
+    int[][] heights3 = {
+        {10, 10, 10},
+        {10, 1, 10},
+        {10, 10, 10}
+    };
+    System.out.println("Test case 3: " + pa.pacificAtlantic(heights3));
+
+    // Test case 4: Single row
+    int[][] heights4 = {
+        {1, 2, 3, 4, 5}
+    };
+    System.out.println("Test case 4: " + pa.pacificAtlantic(heights4));
+
+    // Test case 5: Single column
+    int[][] heights5 = {
+        {1},
+        {2},
+        {3},
+        {4},
+        {5}
+    };
+    System.out.println("Test case 5: " + pa.pacificAtlantic(heights5));
+
+    // Test case 6: Empty matrix
+    int[][] heights6 = {};
+    System.out.println("Test case 6: " + pa.pacificAtlantic(heights6));
+
+    // Test case 7: Matrix with one cell
+    int[][] heights7 = {
+        {1}
+    };
+    System.out.println("Test case 7: " + pa.pacificAtlantic(heights7));
+
+    // Test case 8: Large matrix with increasing heights
+    int[][] heights8 = new int[100][100];
+    for (int i = 0; i < 100; i++) {
+        for (int j = 0; j < 100; j++) {
+            heights8[i][j] = i + j;
+        }
+    }
+    System.out.println("Test case 8: " + pa.pacificAtlantic(heights8));
+
+    }
 }
 
-/*
- * time complexity: O(m * n)
- * space complexity: O(m * n)
- */
+
+ 
