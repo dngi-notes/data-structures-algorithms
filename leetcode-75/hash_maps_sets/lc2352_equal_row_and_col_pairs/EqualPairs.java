@@ -28,7 +28,7 @@ public class EqualPairs {
         Map<Integer, int[]> rowMap = new HashMap<>();
         Map<Integer, int[]> colMap = new HashMap<>();
 
-        if(grid == null) {
+        if(grid == null || grid.length == 0) {
             return 0;
         }
 
@@ -114,5 +114,8 @@ public class EqualPairs {
                 { 21, 22, 23, 24, 25 }
         };
         System.out.println(output + ep.equalPairs(grid7)); // expected: 0
+
+        int[][] grid8 = null;
+        System.out.println(output + ep.equalPairs(grid8)); // expected: 0
     }
 }
