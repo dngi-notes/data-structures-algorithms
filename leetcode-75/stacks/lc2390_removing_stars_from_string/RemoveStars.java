@@ -22,10 +22,11 @@ public class RemoveStars {
 
         for(char ch: s.toCharArray()) {
             if(ch == '*') {
-                stack.pop();
+                if(!stack.isEmpty()) {
+                    stack.pop();
+                }
                 continue;
             }
-
             stack.push(ch);
         }
 
@@ -41,7 +42,37 @@ public class RemoveStars {
         RemoveStars rs = new RemoveStars();
         String output = "Output: ";
 
+        /* example 1 */
         String s1 = "leet**cod*e";
-        System.out.println(output + rs.removeStars(s1));
+        System.out.println(output + rs.removeStars(s1)); // expected: "lecoe"
+
+        /* example 2 */
+        String s2 = "erase*****";
+        System.out.println(output + rs.removeStars(s2)); // expected: ""
+        
+        String s3 = "a*b*c*";
+        System.out.println(output + rs.removeStars(s3)); // Expected output: ""
+
+        String s4 = "abc*de**f";
+        System.out.println(output + rs.removeStars(s4)); // Expected output: "abf"
+
+        String s5 = "*****";
+        System.out.println(output + rs.removeStars(s5)); // Expected output: ""
+
+        String s6 = "no*stars*here";
+        System.out.println(output + rs.removeStars(s6)); // Expected output: "nstarshere"
+
+        String s7 = "";
+        System.out.println(output + rs.removeStars(s7)); // Expected output: ""
+
+        String s8 = "*a*b*c*";
+        System.out.println(output + rs.removeStars(s8)); // Expected output: ""
+
+        String s9 = "a**b**c";
+        System.out.println(output + rs.removeStars(s9)); // Expected output: "c"
+
+        String s10 = "a*b*c*d*e*f*";
+        System.out.println(output + rs.removeStars(s10)); // Expected output: ""
+
     }
 }
