@@ -38,6 +38,11 @@ public class RemoveStars {
         return result.toString();
     }
 
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+
     public static void main(String[] args) {
         RemoveStars rs = new RemoveStars();
         String output = "Output: ";
