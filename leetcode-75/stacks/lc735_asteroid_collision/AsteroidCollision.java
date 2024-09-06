@@ -62,4 +62,10 @@ public class AsteroidCollision {
 
         return result;
     }
+
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+
 }
