@@ -53,14 +53,30 @@ public class DecodeString {
         return currentString;
     }
 
+    /*
+     * time complexity: O(n)
+     * space complexity: O(n)
+     */
+
     public static void main(String[] args) {
         DecodeString ds = new DecodeString();
         String output = "Output: ";
 
+        /* LeetCode Examples */
         String s1 = "3[a]2[bc]";
-        System.out.println(output + ds.decodeString(s1));
+        System.out.println(output + ds.decodeString(s1)); //expected output: aaabcbc
 
         String s2 = "3[a2[c]]";
-        System.out.println(output + ds.decodeString(s2));
+        System.out.println(output + ds.decodeString(s2)); //expected output: accaccacc
+
+        String s3 = "2[abc]3[cd]ef";
+        System.out.println(output + ds.decodeString(s3)); //expected output: abcabccdcdcdef
+
+        /*EDGE CASES */
+        String s4 = "";
+        System.out.println(output + ds.decodeString(s4)); //expected output: ""
+
+        String s5 = "2[]";
+        System.out.println(output + ds.decodeString(s5)); //expected output: ""
     }
 }
