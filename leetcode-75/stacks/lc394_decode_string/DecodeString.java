@@ -78,5 +78,11 @@ public class DecodeString {
 
         String s5 = "2[]";
         System.out.println(output + ds.decodeString(s5)); //expected output: ""
+
+        String s6 = "100[a]";
+        System.out.println(output + ds.decodeString(s6));
+
+        String s7 = "a";
+        System.out.println(output + ds.decodeString(s7));
     }
 }
