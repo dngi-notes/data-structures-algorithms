@@ -59,5 +59,8 @@ public class DecodeString {
 
         String s1 = "3[a]2[bc]";
         System.out.println(output + ds.decodeString(s1));
+
+        String s2 = "3[a2[c]]";
+        System.out.println(output + ds.decodeString(s2));
     }
 }
