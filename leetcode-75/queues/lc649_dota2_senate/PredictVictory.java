@@ -60,6 +60,11 @@ public class PredictVictory {
         return radiantQueue.isEmpty() ? "Dire" : "Radiant";
     }
 
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+
     public static void main(String[] args) {
         PredictVictory pv = new PredictVictory();
         String output = "Output: ";
@@ -69,5 +74,33 @@ public class PredictVictory {
 
         String senate2 = "RDD";
         System.out.println(output + pv.predictPartyVictory(senate2));
+
+        // Test case 3: Single senator from Radiant
+        String senate3 = "R";
+        System.out.println(output + pv.predictPartyVictory(senate3)); // Expected: Radiant
+
+        // Test case 4: Single senator from Dire
+        String senate4 = "D";
+        System.out.println(output + pv.predictPartyVictory(senate4)); // Expected: Dire
+
+        // Test case 5: Alternating senators
+        String senate5 = "RDRD";
+        System.out.println(output + pv.predictPartyVictory(senate5)); // Expected: Radiant
+
+        // Test case 6: All Radiant
+        String senate6 = "RRRR";
+        System.out.println(output + pv.predictPartyVictory(senate6)); // Expected: Radiant
+
+        // Test case 7: All Dire
+        String senate7 = "DDDD";
+        System.out.println(output + pv.predictPartyVictory(senate7)); // Expected: Dire
+
+        // Test case 8: Longer sequence with mixed parties
+        String senate8 = "RDDRRDR";
+        System.out.println(output + pv.predictPartyVictory(senate8)); // Expected: Radiant
+
+        // Test case 9: Edge case with immediate victory
+        String senate9 = "RDDDR";
+        System.out.println(output + pv.predictPartyVictory(senate9)); // Expected: Dire
     }
 }
