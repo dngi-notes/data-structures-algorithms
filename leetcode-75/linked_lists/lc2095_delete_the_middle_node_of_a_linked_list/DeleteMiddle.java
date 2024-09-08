@@ -36,7 +36,7 @@ public class DeleteMiddle {
      */
     public ListNode deleteMiddle(ListNode head) {
         if(head == null || head.next == null) {
-            return head;
+            return null;
         }
 
         ListNode slow = head;
@@ -64,7 +64,16 @@ public class DeleteMiddle {
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
-
         System.out.println(output + dm.deleteMiddle(head).toString());
+
+        ListNode head2 = new ListNode(1);
+        head2.next = new ListNode(3);
+        head2.next.next = new ListNode(5);
+        head2.next.next.next = new ListNode(7);
+        System.out.println(output + dm.deleteMiddle(head2).toString());
+
+        ListNode head3 = null;
+        System.out.println(output + dm.deleteMiddle(head3));
+
     }
 }
