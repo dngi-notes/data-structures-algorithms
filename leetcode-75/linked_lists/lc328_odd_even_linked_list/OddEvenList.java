@@ -14,7 +14,7 @@ class ListNode {
         while(curr != null) {
             sb.append(curr.val);
             if(curr.next != null) {
-                sb.append("->");
+                sb.append(" -> ");
             }
             curr = curr.next;
         }
@@ -67,6 +67,20 @@ public class OddEvenList {
         head1.next.next.next = new ListNode(4);
         head1.next.next.next.next = new ListNode(5);
         System.out.println(output + oel.oddEvenList(head1).toString()); // Expected Output: 1 -> 3 -> 5 -> 2 -> 4
+
+        /* Example 2 */
+        ListNode head2 = new ListNode(2);
+        head2.next = new ListNode(1);
+        head2.next.next = new ListNode(3);
+        head2.next.next.next = new ListNode(5);
+        head2.next.next.next.next = new ListNode(6);
+        head2.next.next.next.next.next = new ListNode(4);
+        head2.next.next.next.next.next.next = new ListNode(7);
+        System.out.println(output + oel.oddEvenList(head2).toString()); // expected output 2, 3, 6, 7, 1, 5, 4
+
+        /* null test */
+        ListNode head3 = null;
+        System.out.println(output + oel.oddEvenList(head3));
 
     }
 }
