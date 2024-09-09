@@ -1,5 +1,6 @@
 package neetcode.graphs.surrounded_regions;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -83,9 +84,43 @@ public class SurroundedRegions {
     }
 
     public static void main(String[] args) {
-        SurroundedRegions sr = new SurroundedRegions();
-        String output = "Output: ";
+    SurroundedRegions sr = new SurroundedRegions();
+    String output = "Output: ";
 
+    char[][] board1 = {
+        {'X', 'X', 'X', 'X'},
+        {'X', 'O', 'O', 'X'},
+        {'X', 'X', 'O', 'X'},
+        {'X', 'O', 'X', 'X'}
+    };
+    sr.solve(board1);
+    System.out.println(output + Arrays.deepToString(board1));
 
-    }
+    char[][] board2 = {
+        {'X', 'X', 'X', 'X'},
+        {'X', 'X', 'X', 'X'},
+        {'X', 'X', 'X', 'X'},
+        {'X', 'X', 'X', 'X'}
+    };
+    sr.solve(board2);
+    System.out.println(output + Arrays.deepToString(board2));
+
+    char[][] board3 = {
+        {'O', 'O', 'O', 'O'},
+        {'O', 'X', 'X', 'O'},
+        {'O', 'X', 'X', 'O'},
+        {'O', 'O', 'O', 'O'}
+    };
+    sr.solve(board3);
+    System.out.println(output + Arrays.deepToString(board3));
+
+    char[][] board4 = {
+        {'X', 'O', 'X', 'X'},
+        {'O', 'X', 'O', 'X'},
+        {'X', 'O', 'X', 'O'},
+        {'O', 'X', 'O', 'X'}
+    };
+    sr.solve(board4);
+    System.out.println(output + Arrays.deepToString(board4));
+}
 }
