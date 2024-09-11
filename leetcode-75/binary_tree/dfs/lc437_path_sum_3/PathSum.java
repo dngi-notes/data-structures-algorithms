@@ -43,6 +43,11 @@ public class PathSum {
         return numPathsToCurr + numPathsLeft + numPathsRight;
     }
 
+    /*
+     * Time complextiy O(n) - goes over every node in the tree once
+     * Space complexity O(h) - depended on the height of the tree due to recursion
+     */
+
     public static void main(String[] args) {
         PathSum ps = new PathSum();
         String output = "Output: ";
