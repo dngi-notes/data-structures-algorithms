@@ -4,7 +4,6 @@ import data_structures.TreeNode;
 import java.util.Map;
 import java.util.HashMap;
 
-
 public class PathSum {
     /*
      * Given the root of a binary tree and an integer targetSum, return the number
@@ -20,14 +19,14 @@ public class PathSum {
      * -1000 <= targetSum <= 1000
      */
     public int pathSum(TreeNode root, int targetSum) {
-        Map<Integer, Integer> prefixSumMap = new HashMap<>();
-        prefixSumMap.put(0, 1);
-        
-        return dfs(root, 0, targetSum, prefixSumMap);
+        Map<Long, Integer> prefixSumMap = new HashMap<>();
+        prefixSumMap.put(0L, 1);
+
+        return dfs(root, 0L, targetSum, prefixSumMap);
     }
 
-    private int dfs(TreeNode node, int currentSum, int targetSum, Map<Integer, Integer> prefixSumMap) {
-        if(node == null) {
+    private int dfs(TreeNode node, long currentSum, int targetSum, Map<Long, Integer> prefixSumMap) {
+        if (node == null) {
             return 0;
         }
 
@@ -39,7 +38,6 @@ public class PathSum {
         int numPathsLeft = dfs(node.left, currentSum, targetSum, prefixSumMap);
         int numPathsRight = dfs(node.right, currentSum, targetSum, prefixSumMap);
 
-        // Backtrack
         prefixSumMap.put(currentSum, prefixSumMap.get(currentSum) - 1);
 
         return numPathsToCurr + numPathsLeft + numPathsRight;
@@ -56,12 +54,12 @@ public class PathSum {
         root1.left.left = new TreeNode(3);
         root1.left.right = new TreeNode(2);
         root1.right.left = null;
-        root1.right.right = new  TreeNode(11);
+        root1.right.right = new TreeNode(11);
         root1.left.left.left = new TreeNode(3);
         root1.left.left.right = new TreeNode(-2);
         root1.left.right.left = null;
         root1.left.right.right = new TreeNode(1);
-        
+
         System.out.println(output + ps.pathSum(root1, 8)); // expected 3
     }
 }
