@@ -63,4 +63,16 @@ public class CourseSchedule {
      * Time: O(n + p), where n is number of courses, p is number of prerequisites
      * Space: O(n + p)
      */
+    public static void main(String[] args) {
+        CourseSchedule cs = new CourseSchedule();
+        String output = "Output: ";
+
+        int numCourses1 = 2;
+        int[][] prerequisites1 = {{0, 1}};
+        System.out.println(output + cs.canFinish(numCourses1, prerequisites1));
+
+        int numCourses2 = 2;
+        int[][] prerequisites2 = {{0, 1}, {1, 0}};
+        System.out.println(output + cs.canFinish(numCourses2, prerequisites2));
+    }
 }
