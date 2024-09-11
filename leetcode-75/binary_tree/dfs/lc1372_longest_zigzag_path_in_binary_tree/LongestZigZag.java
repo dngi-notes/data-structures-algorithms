@@ -23,13 +23,50 @@ public class LongestZigZag {
     }
 
     private int calculateZigZag(TreeNode node, boolean isRight, int length) {
-        if(node == null) {
+        if (node == null) {
             return length - 1;
         }
 
         int leftZigZag = calculateZigZag(node.left, false, isRight ? length + 1 : 1);
-        int rightZigZag = calculateZigZag(node.right, true, isRight ? 1: length + 1);
+        int rightZigZag = calculateZigZag(node.right, true, isRight ? 1 : length + 1);
 
         return Math.max(leftZigZag, rightZigZag);
+    }
+
+    /*
+     * Time Complexity: O(n)
+     * Space Compleity: O(h)
+     */
+
+    public static void main(String[] args) {
+        LongestZigZag lzz = new LongestZigZag();
+        String output = "Output: ";
+
+        // Test case 1: Single node tree
+        TreeNode root1 = new TreeNode(1);
+        System.out.println(output + lzz.longestZigZag(root1)); // Expected: 0
+
+        // Test case 2: Zigzag path
+        TreeNode root2 = new TreeNode(1);
+        root2.left = new TreeNode(2);
+        root2.left.right = new TreeNode(3);
+        root2.left.right.left = new TreeNode(4);
+        System.out.println(output + lzz.longestZigZag(root2)); // Expected: 3
+
+        // Test case 3: No zigzag path
+        TreeNode root3 = new TreeNode(1);
+        root3.left = new TreeNode(2);
+        root3.left.left = new TreeNode(3);
+        root3.left.left.left = new TreeNode(4);
+        System.out.println(output + lzz.longestZigZag(root3)); // Expected: 1
+
+        // Test case 4: Mixed tree
+        TreeNode root4 = new TreeNode(1);
+        root4.left = new TreeNode(2);
+        root4.right = new TreeNode(3);
+        root4.left.right = new TreeNode(4);
+        root4.right.left = new TreeNode(5);
+        root4.right.left.right = new TreeNode(6);
+        System.out.println(output + lzz.longestZigZag(root4)); // Expected: 3
     }
 }
