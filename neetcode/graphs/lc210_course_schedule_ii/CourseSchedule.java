@@ -1,5 +1,12 @@
 package neetcode.graphs.lc210_course_schedule_ii;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
+
 public class CourseSchedule {
     /*
      * There are a total of numCourses courses you have to take, labeled from 0 to
@@ -21,6 +28,52 @@ public class CourseSchedule {
      * All the pairs [ai, bi] are distinct.
      */
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        
+        Map<Integer, List<Integer>> preMap = new HashMap<>();
+        Set<Integer> visiting = new HashSet<>();
+        Set<Integer> visited = new HashSet<>();
+        List<Integer> courseOrder = new ArrayList<>();
+
+        for (int i = 0; i < numCourses; i++) {
+            preMap.put(i, new ArrayList<>());
+        }
+
+        for (int[] pair : prerequisites) {
+            preMap.get(pair[0]).add(pair[1]);
+        }
+
+        for (int c = 0; c < numCourses; c++) {
+            if (!getCourseOrder(c, preMap, visiting, visited, courseOrder)) {
+                return new int[0];
+            }
+        }
+        int[] result = new int[numCourses];
+        for (int i = 0; i < courseOrder.size(); i++) {
+            result[i] = courseOrder.get(i);
+        }
+
+        return result;
+    }
+
+    private boolean getCourseOrder(int course, Map<Integer, List<Integer>> preMap, Set<Integer> visiting,
+            Set<Integer> visited, List<Integer> courseOrder) {
+        if (visited.contains(course)) {
+            return true;
+        }
+
+        if (visiting.contains(course)) {
+            return false;
+        }
+
+        visiting.add(course);
+        for (int pre : preMap.get(course)) {
+            if (!getCourseOrder(pre, preMap, visiting, visited, courseOrder)) {
+                return false;
+            }
+        }
+
+        visited.add(course);
+        visiting.remove(course);
+        courseOrder.add(course);
+        return true;
     }
 }
