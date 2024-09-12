@@ -82,6 +82,11 @@ public class CourseSchedule {
         return true;
     }
 
+    /*
+     * Time Complexity: O(n + p) n is the number of courses, p is the number of prerequisites
+     * Space Complexity: O(n + p)
+     */
+
     public static void main(String[] args) {
         CourseSchedule cs = new CourseSchedule();
         String output = "Output: ";
