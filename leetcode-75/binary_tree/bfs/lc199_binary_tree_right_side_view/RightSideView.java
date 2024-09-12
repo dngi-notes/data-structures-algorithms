@@ -44,6 +44,11 @@ public class RightSideView {
         }
     }
 
+    /*
+     * Time Complexity O(n)
+     * Space Complexity O(n)
+     */
+
     public static void main(String[] args) {
         RightSideView rsv = new RightSideView();
         String output = "Output: ";
