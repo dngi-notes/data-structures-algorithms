@@ -1,6 +1,7 @@
 package neetcode.graphs.lc210_course_schedule_ii;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -32,6 +33,10 @@ public class CourseSchedule {
         Set<Integer> visiting = new HashSet<>();
         Set<Integer> visited = new HashSet<>();
         List<Integer> courseOrder = new ArrayList<>();
+
+        if(prerequisites == null) {
+            return new int[]{};
+        }
 
         for (int i = 0; i < numCourses; i++) {
             preMap.put(i, new ArrayList<>());
@@ -75,5 +80,30 @@ public class CourseSchedule {
         visiting.remove(course);
         courseOrder.add(course);
         return true;
+    }
+
+    public static void main(String[] args) {
+        CourseSchedule cs = new CourseSchedule();
+        String output = "Output: ";
+
+        int[][] prerequisites1 = {{1, 0}};
+        String result1 = Arrays.toString(cs.findOrder(2, prerequisites1));
+        System.out.println(output + result1);
+
+        int[][] prerequisites2 = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+        String result2 = Arrays.toString(cs.findOrder(4, prerequisites2));
+        System.out.println(output + result2);
+
+        int[][] prerequisites3 = {};
+        String result3 = Arrays.toString(cs.findOrder(1, prerequisites3));
+        System.out.println(output + result3);
+
+        int[][] prerequisites4 = null;
+        String result4 = Arrays.toString(cs.findOrder(1, prerequisites4));
+        System.out.println(output + result4);
+
+        int[][] prerequisites5 = {};
+        String result5 = Arrays.toString(cs.findOrder(4, prerequisites5));
+        System.out.println(output + result5);
     }
 }
