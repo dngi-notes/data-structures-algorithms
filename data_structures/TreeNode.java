@@ -49,4 +49,18 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    /**
+     * Returns a string representation of the {@code TreeNode}.
+     * The format is: val -> (left child, right child).
+     * If a child is null, it is represented as "null".
+     *
+     * @return a string representation of the {@code TreeNode}
+     */
+    @Override
+    public String toString() {
+        String leftStr = (left == null) ? "null" : left.toString();
+        String rightStr = (right == null) ? "null" : right.toString();
+        return val + " -> (" + leftStr + ", " + rightStr + ")";
+    }
 }
