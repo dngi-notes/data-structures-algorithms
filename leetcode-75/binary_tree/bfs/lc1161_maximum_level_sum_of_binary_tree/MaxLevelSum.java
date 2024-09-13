@@ -46,4 +46,19 @@ public class MaxLevelSum {
 
         return maxLevel;
     }
+
+    public static void main(String[] args) {
+        MaxLevelSum mls = new MaxLevelSum();
+        String output = "Output: ";
+
+        TreeNode root1 = new TreeNode(1);
+        root1.left = new TreeNode(7);
+        root1.right = new TreeNode(0);
+        root1.left.left = new TreeNode(7);
+        root1.left.right = new TreeNode(-8);
+        root1.right.left = null;
+        root1.right.right = null;
+
+        System.out.println(output + mls.maxLevelSum(root1));
+    }
 }
