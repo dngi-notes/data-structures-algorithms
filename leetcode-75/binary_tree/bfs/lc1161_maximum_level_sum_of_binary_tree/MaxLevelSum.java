@@ -21,7 +21,7 @@ public class MaxLevelSum {
         if(node == null) return 0;
 
         Queue<TreeNode> levels = new LinkedList<>();
-        levels.add(node);
+        levels.offer(node);
         int maxSum = Integer.MIN_VALUE;
         int level = 0;
         int maxLevel = 0;
@@ -34,8 +34,8 @@ public class MaxLevelSum {
                 TreeNode currentNode = levels.poll();
                 currentSum += currentNode.val;
 
-                if(currentNode.left != null) levels.add(currentNode.left);
-                if(currentNode.right != null) levels.add(currentNode.right);
+                if(currentNode.left != null) levels.offer(currentNode.left);
+                if(currentNode.right != null) levels.offer(currentNode.right);
             }
 
             if(currentSum > maxSum) {
