@@ -35,6 +35,36 @@ public class SearchBST {
     }
     //Recursive Solution
     public TreeNode searchBSTRecursive(TreeNode root, int val) {
+        if(root == null || root.val == val) {
+            return root;
+        }
+
+        if(val < root.val) {
+           return searchBSTRecursive(root.left, val);
+        }
+
+        return searchBSTRecursive(root.right, val);
+    }
+
+    public static void main(String[] args) {
+        SearchBST sbst = new SearchBST();
+        String output = "Output: ";
+
+        TreeNode root1 = new TreeNode(4);
+        root1.left = new TreeNode(2);
+        root1.right = new TreeNode(7);
+        root1.left.left = new TreeNode(1);
+        root1.left.right = new TreeNode(3);
+
+        int val1 = 2;
+
+        TreeNode result1 = sbst.searchBSTIterative(root1, val1);
+        TreeNode result2 = sbst.searchBSTRecursive(root1, val1);
+        System.out.println(output + result1);
+        System.out.println(output + result2);
+
 
     }
 }
+
+
