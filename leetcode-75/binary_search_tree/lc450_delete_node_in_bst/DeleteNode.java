@@ -49,6 +49,11 @@ public class DeleteNode {
         return minValue;
     }
 
+    /*
+     * Time Complexity: O(h), where h can be either O(n) if the tree is unbalanced and O(logn) if it is balanced
+     * Space Complexity: O(h)
+     */
+
     public static void main(String[] args) {
         DeleteNode dn = new DeleteNode();
         String output = "Output: ";
