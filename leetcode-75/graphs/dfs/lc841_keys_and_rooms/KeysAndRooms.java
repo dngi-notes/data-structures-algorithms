@@ -42,5 +42,35 @@ public class KeysAndRooms {
         }
         return true;
     }
+    public static void main(String[] args) {
+        KeysAndRooms kar = new KeysAndRooms();
+        
+        // Test case 1: All rooms can be visited
+        List<List<Integer>> rooms1 = new ArrayList<>();
+        rooms1.add(List.of(1));
+        rooms1.add(List.of(2));
+        rooms1.add(List.of(3));
+        rooms1.add(new ArrayList<>());
+        System.out.println("Test case 1: " + kar.canVisitAllRooms(rooms1)); // Expected: true
 
+        // Test case 2: Not all rooms can be visited
+        List<List<Integer>> rooms2 = new ArrayList<>();
+        rooms2.add(List.of(1, 3));
+        rooms2.add(List.of(3, 0, 1));
+        rooms2.add(List.of(2));
+        rooms2.add(List.of(0));
+        System.out.println("Test case 2: " + kar.canVisitAllRooms(rooms2)); // Expected: false
+
+        // Test case 3: Single room
+        List<List<Integer>> rooms3 = new ArrayList<>();
+        rooms3.add(new ArrayList<>());
+        System.out.println("Test case 3: " + kar.canVisitAllRooms(rooms3)); // Expected: true
+
+        // Test case 4: Multiple rooms with no keys
+        List<List<Integer>> rooms4 = new ArrayList<>();
+        rooms4.add(new ArrayList<>());
+        rooms4.add(new ArrayList<>());
+        rooms4.add(new ArrayList<>());
+        System.out.println("Test case 4: " + kar.canVisitAllRooms(rooms4)); // Expected: false
+    }
 }
