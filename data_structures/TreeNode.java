@@ -1,5 +1,8 @@
 package data_structures;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * The {@code TreeNode} class represents a node in a binary tree.
  * Each node contains an integer value, a reference to the left child, 
@@ -57,10 +60,36 @@ public class TreeNode {
      *
      * @return a string representation of the {@code TreeNode}
      */
+
     @Override
     public String toString() {
-        String leftStr = (left == null) ? "null" : left.toString();
-        String rightStr = (right == null) ? "null" : right.toString();
-        return val + " -> (" + leftStr + ", " + rightStr + ")";
+        
+        StringBuilder result = new StringBuilder();
+        result.append("[");
+    
+        // Use a queue to perform a level-order traversal of the tree
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(this);
+    
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+    
+            if (current == null) {
+                result.append("null,");
+            } else {
+                result.append(current.val).append(",");
+                queue.offer(current.left);
+                queue.offer(current.right);
+            }
+        }
+    
+        // Remove the trailing comma and add the closing bracket
+        if (result.length() > 1) {
+            result.setLength(result.length() - 1);
+        }
+        result.append("]");
+    
+        return result.toString();
     }
+    
 }
