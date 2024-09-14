@@ -42,6 +42,12 @@ public class KeysAndRooms {
         }
         return true;
     }
+
+    /*
+     * Time Complexity: O(V + E), where v is the rooms, and e is the keys
+     * Space Complexity: O(n), where in is the number of rooms
+     */
+
     public static void main(String[] args) {
         KeysAndRooms kar = new KeysAndRooms();
         
