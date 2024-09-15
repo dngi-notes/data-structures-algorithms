@@ -61,5 +61,11 @@ public class ReorderPaths {
 
         int[][] connections1 = {{0, 1}, {1, 3}, {2, 3}, {4, 0}, {4, 5}};
         System.out.println(output + rp.minReorder(6, connections1));
+
+        int[][] connections2 = {{1, 0}, {1, 2}, {3, 2}, {3, 4}};
+        System.out.println(output + rp.minReorder(5, connections2));
+
+        int[][] connections3 = {{1, 0}, {2, 0}};
+        System.out.println(output + rp.minReorder(3, connections3));
     }
 }
