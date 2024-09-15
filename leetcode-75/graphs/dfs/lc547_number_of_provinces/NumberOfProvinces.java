@@ -45,6 +45,11 @@ public class NumberOfProvinces {
         }
     }
 
+    /*
+     * Time Complexity: O(n ^ 2)
+     * Space Complexity: O(n ^ 2)
+     */
+
     public static void main(String[] args) {
         NumberOfProvinces nop = new NumberOfProvinces();
         String output = "Output: ";
