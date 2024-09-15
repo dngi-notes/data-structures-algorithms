@@ -1,8 +1,9 @@
 package graphs.dfs.lc1466_reorder_routes_to_make_paths_lead_to_zero;
 
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
-
+import java.util.HashSet;
 
 public class ReorderPaths {
     /*
@@ -24,34 +25,36 @@ public class ReorderPaths {
      */
     public int minReorder(int n, int[][] connections) {
         List<List<Integer>> graph = new ArrayList<>();
+        Set<String> directedEdges = new HashSet<>();
 
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             graph.add(new ArrayList<>());
         }
 
-        for(int[] conn : connections) {
+        for (int[] conn : connections) {
             graph.get(conn[0]).add(conn[1]);
             graph.get(conn[1]).add(conn[0]);
+            directedEdges.add(conn[0] + "->" + conn[1]);
         }
 
         boolean[] visited = new boolean[n];
-        return dfs(0, connections, visited, graph);
+        return dfs(0, graph, directedEdges, visited);
     }
 
-    private int dfs(int node, int[][] connections, boolean[] visited, List<List<Integer>> graph) {
+    private int dfs(int node, List<List<Integer>> graph, Set<String> directedEdges, boolean[] visited) {
         visited[node] = true;
         int count = 0;
 
-        for(int neighbor: graph.get(node)) {
-            if(!visited[neighbor]) {
-                for(int[] conn: connections) {
-                    if(conn[0] == node && conn[1] == neighbor) {
-                        count++;
-                    }
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
+                // Check if the edge needs to be reversed
+                if (directedEdges.contains(node + "->" + neighbor)) {
+                    count++;
                 }
-                count += dfs(neighbor, connections, visited, graph);
+                count += dfs(neighbor, graph, directedEdges, visited);
             }
         }
+
         return count;
     }
 
@@ -59,13 +62,13 @@ public class ReorderPaths {
         ReorderPaths rp = new ReorderPaths();
         String output = "Output: ";
 
-        int[][] connections1 = {{0, 1}, {1, 3}, {2, 3}, {4, 0}, {4, 5}};
+        int[][] connections1 = { { 0, 1 }, { 1, 3 }, { 2, 3 }, { 4, 0 }, { 4, 5 } };
         System.out.println(output + rp.minReorder(6, connections1));
 
-        int[][] connections2 = {{1, 0}, {1, 2}, {3, 2}, {3, 4}};
+        int[][] connections2 = { { 1, 0 }, { 1, 2 }, { 3, 2 }, { 3, 4 } };
         System.out.println(output + rp.minReorder(5, connections2));
 
-        int[][] connections3 = {{1, 0}, {2, 0}};
+        int[][] connections3 = { { 1, 0 }, { 2, 0 } };
         System.out.println(output + rp.minReorder(3, connections3));
     }
 }
