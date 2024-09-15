@@ -25,7 +25,7 @@ public class ReorderPaths {
     public int minReorder(int n, int[][] connections) {
         List<List<Integer>> graph = new ArrayList<>();
 
-        for(int i = 0; i < connections.length; i++) {
+        for(int i = 0; i < n; i++) {
             graph.add(new ArrayList<>());
         }
 
@@ -53,5 +53,13 @@ public class ReorderPaths {
             }
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        ReorderPaths rp = new ReorderPaths();
+        String output = "Output: ";
+
+        int[][] connections1 = {{0, 1}, {1, 3}, {2, 3}, {4, 0}, {4, 5}};
+        System.out.println(output + rp.minReorder(6, connections1));
     }
 }
