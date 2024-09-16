@@ -65,7 +65,7 @@ public class EvaluateDivision {
 
         for(Map.Entry<String, Double> neighbor: graph.get(src).entrySet()) {
             if(!visited.contains(neighbor.getKey())) {
-                double result = dfs(graph, neighbor.getKey(), dest, product, visited);
+                double result = dfs(graph, neighbor.getKey(), dest, product * neighbor.getValue(), visited);
                 if(result != -1.0) {
                     return result;
                 }
