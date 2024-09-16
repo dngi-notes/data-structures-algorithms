@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Arrays;
 
 public class EvaluateDivision {
     /*
@@ -73,5 +74,49 @@ public class EvaluateDivision {
         }
 
         return - 1.0;
+    }
+
+    public static void main(String[] args) {
+        EvaluateDivision ed = new EvaluateDivision();
+
+        // Test Case 1
+        List<List<String>> equations1 = Arrays.asList(
+                Arrays.asList("a", "b"),
+                Arrays.asList("b", "c")
+        );
+        double[] values1 = {2.0, 3.0};
+        List<List<String>> queries1 = Arrays.asList(
+                Arrays.asList("a", "c"),
+                Arrays.asList("b", "a"),
+                Arrays.asList("a", "e"),
+                Arrays.asList("a", "a"),
+                Arrays.asList("x", "x")
+        );
+        System.out.println("Test Case 1: " + Arrays.toString(ed.calcEquation(equations1, values1, queries1))); // Expected: [6.0, 0.5, -1.0, 1.0, -1.0]
+
+        // Test Case 2
+        List<List<String>> equations2 = Arrays.asList(
+                Arrays.asList("a", "b"),
+                Arrays.asList("c", "d")
+        );
+        double[] values2 = {1.0, 1.0};
+        List<List<String>> queries2 = Arrays.asList(
+                Arrays.asList("a", "c"),
+                Arrays.asList("b", "d"),
+                Arrays.asList("a", "a"),
+                Arrays.asList("c", "c")
+        );
+        System.out.println("Test Case 2: " + Arrays.toString(ed.calcEquation(equations2, values2, queries2))); // Expected: [-1.0, -1.0, 1.0, 1.0]
+
+        // Test Case 3
+        List<List<String>> equations3 = Arrays.asList(
+                Arrays.asList("a", "a")
+        );
+        double[] values3 = {1.0};
+        List<List<String>> queries3 = Arrays.asList(
+                Arrays.asList("a", "a"),
+                Arrays.asList("a", "b")
+        );
+        System.out.println("Test Case 3: " + Arrays.toString(ed.calcEquation(equations3, values3, queries3))); // Expected: [1.0, -1.0]
     }
 }
