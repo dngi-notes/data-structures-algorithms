@@ -20,7 +20,7 @@ public class NearestExit {
      * nearest exit, or -1 if no such path exists.
      */
     public int nearestExit(char[][] maze, int[] entrance) {
-         if(maze == null || maze.length == 0 || maze[0].length == 0) {
+        if (maze == null || maze.length == 0 || maze[0].length == 0 || maze[entrance[0]][entrance[1]] == '+') {
             return -1;
         }
 
@@ -31,34 +31,34 @@ public class NearestExit {
 
         queue.offer(entrance);
         visited[entrance[0]][entrance[1]] = true;
-        
+
         return bfs(maze, queue, visited, entrance);
     }
 
     private int bfs(char[][] maze, Queue<int[]> queue, boolean[][] visited, int[] entrance) {
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
         int steps = 0;
 
         int rows = maze.length;
         int cols = maze[0].length;
 
-
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int size = queue.size();
             steps++;
-            for(int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++) {
                 int[] cell = queue.poll();
                 int row = cell[0];
                 int col = cell[1];
-                for(int[] direction: directions) {
+                for (int[] direction : directions) {
                     int newRow = row + direction[0];
                     int newCol = col + direction[1];
 
-                    if(newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && maze[newRow][newCol] == '.' && !visited[newRow][newCol]) {
-                        if(newRow == 0 || newRow == rows - 1 || newCol == 0 || newCol == cols - 1) {
+                    if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && maze[newRow][newCol] == '.'
+                            && !visited[newRow][newCol]) {
+                        if (newRow == 0 || newRow == rows - 1 || newCol == 0 || newCol == cols - 1) {
                             return steps;
                         }
-                        queue.offer(new int[]{newRow, newCol});
+                        queue.offer(new int[] { newRow, newCol });
                         visited[newRow][newCol] = true;
                     }
                 }
@@ -66,5 +66,57 @@ public class NearestExit {
         }
 
         return -1;
+    }
+
+    public static void main(String[] args) {
+        NearestExit solver = new NearestExit();
+
+        // Test Case 1: Basic Test Case
+        char[][] maze1 = {
+                { '+', '+', '.', '+' },
+                { '.', '.', '.', '+' },
+                { '+', '+', '+', '.' }
+        };
+        int[] entrance1 = { 1, 2 };
+        System.out.println(solver.nearestExit(maze1, entrance1)); // Expected output: 1
+
+        // Test Case 2: No Exit
+        char[][] maze2 = {
+                { '+', '+', '+', '+' },
+                { '+', '.', '.', '+' },
+                { '+', '+', '+', '+' }
+        };
+        int[] entrance2 = { 1, 1 };
+        System.out.println(solver.nearestExit(maze2, entrance2)); // Expected output: -1
+
+        // Test Case 3: Multiple Exits
+        char[][] maze3 = {
+                { '+', '.', '+', '+', '+', '+', '+' },
+                { '+', '.', '.', '.', '.', '.', '+' },
+                { '+', '+', '+', '+', '.', '+', '.' }
+        };
+        int[] entrance3 = { 1, 0 };
+        System.out.println(solver.nearestExit(maze3, entrance3)); // Expected output: -1
+
+        // Test Case 4: Entrance on Border
+        char[][] maze4 = {
+                { '+', '.', '+' },
+                { '.', '.', '.' },
+                { '+', '+', '+' }
+        };
+        int[] entrance4 = { 0, 1 };
+        System.out.println(solver.nearestExit(maze4, entrance4)); // Expected output: 2
+
+        // Test Case 5: Complex Maze
+        char[][] maze5 = {
+                { '+', '+', '+', '+', '+', '+', '+' },
+                { '+', '.', '.', '.', '.', '.', '+' },
+                { '+', '.', '+', '+', '+', '.', '+' },
+                { '+', '.', '+', '.', '+', '.', '+' },
+                { '+', '.', '+', '.', '.', '.', '+' },
+                { '+', '+', '+', '+', '+', '+', '+' }
+        };
+        int[] entrance5 = { 1, 1 };
+        System.out.println(solver.nearestExit(maze5, entrance5)); // Expected output: -1
     }
 }
