@@ -32,10 +32,10 @@ public class NearestExit {
         queue.offer(entrance);
         visited[entrance[0]][entrance[1]] = true;
 
-        return bfs(maze, queue, visited, entrance);
+        return bfs(maze, queue, visited);
     }
 
-    private int bfs(char[][] maze, Queue<int[]> queue, boolean[][] visited, int[] entrance) {
+    private int bfs(char[][] maze, Queue<int[]> queue, boolean[][] visited) {
         int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
         int steps = 0;
 
