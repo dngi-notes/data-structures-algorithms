@@ -1,5 +1,8 @@
 package graphs.bfs.lc1926_nearest_exit_from_entrance_in_maze;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class NearestExit {
     /*
      * You are given an m x n matrix maze (0-indexed) with empty cells (represented
@@ -17,6 +20,51 @@ public class NearestExit {
      * nearest exit, or -1 if no such path exists.
      */
     public int nearestExit(char[][] maze, int[] entrance) {
-         
+         if(maze == null || maze.length == 0 || maze[0].length == 0) {
+            return -1;
+        }
+
+        int rows = maze.length;
+        int cols = maze[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        boolean[][] visited = new boolean[rows][cols];
+
+        queue.offer(entrance);
+        visited[entrance[0]][entrance[1]] = true;
+        
+        return bfs(maze, queue, visited, entrance);
+    }
+
+    private int bfs(char[][] maze, Queue<int[]> queue, boolean[][] visited, int[] entrance) {
+        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int steps = 0;
+
+        int rows = maze.length;
+        int cols = maze[0].length;
+
+
+        while(!queue.isEmpty()) {
+            int size = queue.size();
+            steps++;
+            for(int i = 0; i < size; i++) {
+                int[] cell = queue.poll();
+                int row = cell[0];
+                int col = cell[1];
+                for(int[] direction: directions) {
+                    int newRow = row + direction[0];
+                    int newCol = col + direction[1];
+
+                    if(newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && maze[newRow][newCol] == '.' && !visited[newRow][newCol]) {
+                        if(newRow == 0 || newRow == rows - 1 || newCol == 0 || newCol == cols - 1) {
+                            return steps;
+                        }
+                        queue.offer(new int[]{newRow, newCol});
+                        visited[newRow][newCol] = true;
+                    }
+                }
+            }
+        }
+
+        return -1;
     }
 }
