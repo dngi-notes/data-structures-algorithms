@@ -61,4 +61,10 @@ public class CountComponents {
             }
         }
     }
+
+    /*
+     * Time Complexity: O(V + E), where V is the number of nodes and E is the number of edges
+     * Space Complexity: O(n)
+     */
+
 }
