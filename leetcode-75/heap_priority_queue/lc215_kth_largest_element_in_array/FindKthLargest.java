@@ -30,5 +30,11 @@ public class FindKthLargest {
 
         int[] nums1 = {1, 2, 3, 5, 4};
         System.out.println(output + fkl.findKthLargest(nums1, 1));
+
+        int[] nums2 = {1, 1, 1, 1};
+        System.out.println(output + fkl.findKthLargest(nums2, 3));
+
+        int[] nums3 = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+        System.out.println(output + fkl.findKthLargest(nums3, 4));
     }
 }
