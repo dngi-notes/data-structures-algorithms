@@ -24,6 +24,12 @@ public class FindKthLargest {
 
         return minHeap.peek();
     }
+
+    /*
+     * Time Complexity: O(n log k)
+     * Space Complexity: O(k)
+     */
+
     public static void main(String[] args) {
         FindKthLargest fkl = new FindKthLargest();
         String output = "Output: ";
