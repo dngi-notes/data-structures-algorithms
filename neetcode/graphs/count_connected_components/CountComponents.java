@@ -27,23 +27,26 @@ public class CountComponents {
          * search each node and keep track of count of connect components
          * 
          */
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        
+        if(edges == null || edges.length == 0 || edges[0].length == 0 || n == 0) {
+            return 0;
+        }
 
-        for(int i = 0; i < n; i++) {
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+
+        for (int i = 0; i < n; i++) {
             graph.put(i, new ArrayList<>());
         }
 
-        for(int[] pair: edges) {
+        for (int[] pair : edges) {
             graph.get(pair[0]).add(pair[1]);
             graph.get(pair[1]).add(pair[0]);
         }
-        
+
         boolean[] visited = new boolean[n];
         int components = 0;
 
-        for(int i = 0; i < n; i++) {
-            if(!visited[i]) {
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
                 dfs(i, graph, visited);
                 components++;
             }
@@ -55,16 +58,33 @@ public class CountComponents {
     private void dfs(int node, Map<Integer, List<Integer>> graph, boolean[] visited) {
         visited[node] = true;
 
-        for(int neighbor: graph.get(node)) {
-            if(!visited[neighbor]) {
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
                 dfs(neighbor, graph, visited);
             }
         }
     }
 
     /*
-     * Time Complexity: O(V + E), where V is the number of nodes and E is the number of edges
+     * Time Complexity: O(V + E), where V is the number of nodes and E is the number
+     * of edges
      * Space Complexity: O(n)
      */
 
+    public static void main(String[] args) {
+        CountComponents cc = new CountComponents();
+        String output = "Output: ";
+
+        int[][] edges1 = {{0, 1}, {1, 2}};
+        System.out.println(output + cc.countComponents(3, edges1));
+        
+        int[][] edges2 = {{0, 1}, {1, 2}, {2, 3}, {4, 5}};
+        System.out.println(output + cc.countComponents(6, edges2));
+        
+        int[][] edges3 = null;
+        System.out.println(output + cc.countComponents(1, edges3));
+        
+        int[][] edges4 = {{0, 1}, {1, 2}, {2, 3}};
+        System.out.println(output + cc.countComponents(0, edges4));   
+    }
 }
