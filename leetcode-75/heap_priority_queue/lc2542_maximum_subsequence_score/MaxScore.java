@@ -94,5 +94,14 @@ public class MaxScore {
         int[] nums11 = { -1, -2, -3 };
         int[] nums12 = { -4, -5, -6 };
         System.out.println(output + ms.maxScore(nums11, nums12, 2)); // expected: 18
+
+        /* Example 8: Large Inputs */
+        int[] nums13 = new int[100000];
+        int[] nums14 = new int[100000];
+        for (int i = 0; i < 100000; i++) {
+            nums13[i] = i + 1;
+            nums14[i] = 100000 - i;
+        }
+        System.out.println(output + ms.maxScore(nums13, nums14, 50000)); // expected: 70315312525000
     }
 }
