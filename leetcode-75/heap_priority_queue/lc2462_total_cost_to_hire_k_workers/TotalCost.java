@@ -32,38 +32,55 @@ public class TotalCost {
      * 
      */
     public long totalCost(int[] costs, int k, int candidates) {
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+        PriorityQueue<Integer> headQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> tailQueue = new PriorityQueue<>();
         int len = costs.length;
 
         for(int i = 0; i < candidates && i < len; i++) {
-            minHeap.offer(new int[]{costs[i], i});
+            headQueue.offer(costs[i]);
         }
 
         for(int i = Math.max(candidates, len - candidates); i < len; i++) {
-            minHeap.offer(new int[]{costs[i], i});
+            tailQueue.offer(costs[i]);
         }
+
         long totalCost = 0;
 
         int left = 0;
         int right = len - candidates - 1;
 
-        while(k > 0) {
-            int[] worker = minHeap.poll();
-            int cost = worker[0];
-            int index = worker[1];
+        for(int i = 0; i < k; i++) {
+            if(tailQueue.isEmpty() || !headQueue.isEmpty() && headQueue.peek() <= tailQueue.peek()) {
+                totalCost += headQueue.poll();
 
-            totalCost += cost;
-            k--;
+                if(left <= right) {
+                    headQueue.offer(costs[left]);
+                    left++;
+                }
+            } else {
+                totalCost += tailQueue.poll();
 
-            if(index < left && left < len) {
-                minHeap.offer(new int[]{costs[left], left});
-                left++;
-            } else if(index > right && right >= 0) {
-                minHeap.offer(new int[]{costs[right], right});
-                right--;
+                if(right >= left) {
+                    headQueue.offer(costs[right]);
+                    right--;
+                }
             }
-        }
-
+        }        
         return totalCost;
+    }
+
+    public static void main(String[] args) {
+        TotalCost tc = new TotalCost();
+        String output = "Output: ";
+
+        int[] costs1 = {3, 2, 7, 7, 1, 2};
+        int k1 = 4;
+        int candidates1 = 2;
+        System.out.println(output + tc.totalCost(costs1, k1, candidates1)); // expected output: 8
+
+        int[] costs2 = {17, 12, 10, 2, 7, 2, 11, 20, 8};
+        int k2 = 3;
+        int candidates2 = 4;
+        System.out.println(output + tc.totalCost(costs2, k2, candidates2)); // expected output: 2 + 2 + 7
     }
 }
