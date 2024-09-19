@@ -21,36 +21,38 @@ public class FindRedundant {
      * the input.
      */
     public int[] findRedundantConnection(int[][] edges) {
-        // adjacency list
+        int n = edges.length;
+
         Map<Integer, List<Integer>> graph = new HashMap<>();
 
-        int n = edges.length;
-        for(int i = 1; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             graph.put(i, new ArrayList<>());
         }
 
-        for(int[] edge: edges) {
-            int u = edge[0];
-            int v = edge[1];
+        for (int edge[] : edges) {
+            int node1 = edge[0];
+            int node2 = edge[1];
             boolean[] visited = new boolean[n + 1];
-            if(graph.containsKey(u) && graph.containsKey(v) && dfs(u, v, graph, visited)) {
+            if (graph.containsKey(node1) && graph.containsKey(node2) && isPath(graph, node1, node2, visited)) {
                 return edge;
             }
 
-            graph.get(u).add(v);
-            graph.get(v).add(u);
+            graph.get(node1).add(node2);
+            graph.get(node2).add(node1);
         }
 
         return new int[0];
     }
-    
-    private boolean dfs(int source, int target, Map<Integer, List<Integer>> graph, boolean[] visited) {
-        if(source == target) return true;
+
+    private boolean isPath(Map<Integer, List<Integer>> graph, int source, int destination, boolean[] visited) {
+        if (source == destination) {
+            return true;
+        }
 
         visited[source] = true;
-        for(int neighbor: graph.get(source)) {
-            if(!visited[neighbor]) {
-                if(dfs(neighbor, target, graph, visited)) {
+        for (int neighbor : graph.get(source)) {
+            if (!visited[neighbor]) {
+                if (isPath(graph, neighbor, destination, visited)) {
                     return true;
                 }
             }
