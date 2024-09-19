@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 public class FindRedundant {
     /*
@@ -59,5 +60,13 @@ public class FindRedundant {
         }
 
         return false;
+    }
+
+    public static void main(String[] args) {
+        FindRedundant fr = new FindRedundant();
+        String output = "Output: ";
+
+        int[][] edges1 = {{1, 2}, {1, 3}, {2, 3}};
+        System.out.println(output + Arrays.toString(fr.findRedundantConnection(edges1)));
     }
 }
