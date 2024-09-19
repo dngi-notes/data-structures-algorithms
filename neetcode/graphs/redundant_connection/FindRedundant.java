@@ -56,6 +56,6 @@ public class FindRedundant {
             }
         }
 
-        return true;
+        return false;
     }
 }
