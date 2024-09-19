@@ -46,7 +46,7 @@ public class TotalCost {
 
         long totalCost = 0;
 
-        int left = 0;
+        int left = candidates;
         int right = len - candidates - 1;
 
         for(int i = 0; i < k; i++) {
@@ -61,7 +61,7 @@ public class TotalCost {
                 totalCost += tailQueue.poll();
 
                 if(right >= left) {
-                    headQueue.offer(costs[right]);
+                    tailQueue.offer(costs[right]);
                     right--;
                 }
             }
