@@ -52,6 +52,7 @@ public class SuccessfulPairs {
 
         int[] spells2 = {};
         int[] potions2 = {1, 2, 3};
-        System.out.println(output + Arrays.toString(sp.successfulPairs(spells2, potions2, 2)));
+        System.out.println(output + Arrays.toString(sp.successfulPairs(spells2, potions2, 2))); // expected []
+
     }
 }
