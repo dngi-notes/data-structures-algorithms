@@ -1,6 +1,5 @@
 package heap_priority_queue.lc2462_total_cost_to_hire_k_workers;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class TotalCost {
