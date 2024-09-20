@@ -15,6 +15,10 @@ public class SuccessfulPairs {
      * potions that will form a successful pair with the ith spell.
      */
     public int[] successfulPairs(int[] spells, int[] potions, int successful) {
+        if(spells == null || potions == null || spells.length == 0 || potions.length == 0) {
+            return new int[spells.length];
+        }
+
         int[] pairs = new int[spells.length];
         Arrays.sort(potions);
         
@@ -43,6 +47,11 @@ public class SuccessfulPairs {
 
         int[] spells1 = {3, 1, 2};
         int[] potions1 = {8, 5, 8};
-        System.out.println(output + Arrays.toString(sp.successfulPairs(spells1, potions1, 16))); 
+        System.out.println(output + Arrays.toString(sp.successfulPairs(spells1, potions1, 16))); // expected [2, 0, 2]
+        System.out.println(output + Arrays.toString(sp.successfulPairs(spells1, potions1, 0))); // expected [3, 3, 3]
+
+        int[] spells2 = {};
+        int[] potions2 = {1, 2, 3};
+        System.out.println(output + Arrays.toString(sp.successfulPairs(spells2, potions2, 2)));
     }
 }
