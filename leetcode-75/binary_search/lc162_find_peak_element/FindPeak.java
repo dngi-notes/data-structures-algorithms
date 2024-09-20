@@ -31,6 +31,11 @@ public class FindPeak {
 
         return left;
     }
+    
+    /*
+     * Time Complexity: O(log n)
+     * Space Complexity: O(1)
+     */
 
     public static void main(String[] args) {
         FindPeak fp = new FindPeak();
