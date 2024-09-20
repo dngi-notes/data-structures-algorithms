@@ -56,6 +56,6 @@ public class SuccessfulPairs {
 
         int[] spells3 = {2, 2, 4};
         int[] potions3 = null;
-        System.out.println(output + Arrays.toString(sp.successfulPairs(spells3, potions3, 4)));
+        System.out.println(output + Arrays.toString(sp.successfulPairs(spells3, potions3, 4))); // expected [0, 0, 0]
     }
 }
