@@ -61,4 +61,9 @@ public class WordLadder {
 
         return 0;
     }
+
+    /*
+     * time complexity: O(m * n), where m = the number of words, n = is the length of each word
+     * space complexity: O(m * n), due to storing the queue, wordList, and visited set
+     */
 }
