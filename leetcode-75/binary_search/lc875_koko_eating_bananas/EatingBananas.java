@@ -26,6 +26,10 @@ public class EatingBananas {
          *  keep track of the time
          * handle left and right window change based on time compared to h?
          */
+        if(h < piles.length) {
+            return 0;
+        }
+
         int left = 1;
         int right = Arrays.stream(piles)
                     .max().getAsInt();
@@ -61,6 +65,9 @@ public class EatingBananas {
         System.out.println(output + eb.minEatingSpeed(piles2, 5)); // expected result: 30
 
         int[] piles3 = {30, 11, 23, 4, 20};
-        System.out.println(output + eb.minEatingSpeed(piles3, 6));
+        System.out.println(output + eb.minEatingSpeed(piles3, 6)); // expected result: 23
+
+        int[] piles4 = {3, 6, 7, 11};
+        System.out.println(output + eb.minEatingSpeed(piles4, 1)); // expected result: 0
     }
 }
