@@ -26,7 +26,7 @@ public class EatingBananas {
          *  keep track of the time
          * handle left and right window change based on time compared to h?
          */
-        if(h < piles.length) {
+        if(piles == null || h < piles.length) {
             return 0;
         }
 
@@ -69,5 +69,8 @@ public class EatingBananas {
 
         int[] piles4 = {3, 6, 7, 11};
         System.out.println(output + eb.minEatingSpeed(piles4, 1)); // expected result: 0
+
+        int[] piles5 = null;
+        System.out.println(output + eb.minEatingSpeed(piles5, 5)); // expected result: 0
     }
 }
