@@ -17,23 +17,25 @@ public class WordLadder {
      * endWord, or 0 if no such sequence exists.
      */
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+
+
         if(!wordList.contains(endWord)) {
             return 0;
         }
 
         Map<String, List<String>> graph = new HashMap<>();
-        int wordLength = beginWord.length();
+        int len = beginWord.length();
 
         for(String word: wordList) {
-            for(int i = 0; i < wordLength; i++) {
-               String pattern = word.substring(0, i) + '*' + word.substring(i + 1);
-               graph.computeIfAbsent(pattern, k -> new ArrayList<>()).add(word); 
+            for(int i = 0; i < len; i++) {
+                String pattern = word.substring(0, i) + '#' + word.substring(i + 1);
+                graph.computeIfAbsent(pattern, key -> new ArrayList<>()).add(word);
             }
         }
 
-        // bfs
+        // queue of map for word to transformation level
         Queue<Map.Entry<String, Integer>> queue = new LinkedList<>();
-        queue.add(new AbstractMap.SimpleEntry<>(beginWord, 1));
+        queue.offer(new AbstractMap.SimpleEntry<>(beginWord, 1));
         Set<String> visited = new HashSet<>();
         visited.add(beginWord);
 
@@ -42,8 +44,8 @@ public class WordLadder {
             String currentWord = current.getKey();
             int level = current.getValue();
 
-            for(int i = 0; i < wordLength; i++) {
-                String pattern = currentWord.substring(0, i) + '*' + currentWord.substring(i + 1);
+            for(int i = 0; i < len; i++) {
+                String pattern = currentWord.substring(0, i) + '#' + currentWord.substring(i + 1);
                 for(String adjacentWord: graph.getOrDefault(pattern, new ArrayList<>())) {
                     if(adjacentWord.equals(endWord)) {
                         return level + 1;
@@ -51,7 +53,7 @@ public class WordLadder {
 
                     if(!visited.contains(adjacentWord)) {
                         visited.add(adjacentWord);
-                        queue.add(new AbstractMap.SimpleEntry<>(adjacentWord, level + 1));
+                        queue.offer(new AbstractMap.SimpleEntry<>(adjacentWord, level + 1));
                     }
                 }
             }
