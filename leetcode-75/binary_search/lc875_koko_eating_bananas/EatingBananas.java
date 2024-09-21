@@ -54,6 +54,11 @@ public class EatingBananas {
         return minimumK;
     }
 
+    /*
+     * Time Complexity: O(n log(r)), where r = is max of piles
+     * Space Complexity: O(1)
+     */
+
     public static void main(String[] args) {
         EatingBananas eb = new EatingBananas();
         String output = "Output: ";
