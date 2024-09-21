@@ -50,5 +50,17 @@ public class EatingBananas {
         return minimumK;
     }
 
-    main
+    public static void main(String[] args) {
+        EatingBananas eb = new EatingBananas();
+        String output = "Output: ";
+
+        int[] piles1 = {3, 6, 7, 11};
+        System.out.println(output + eb.minEatingSpeed(piles1, 8)); // expected result: 4
+
+        int[] piles2 = {30, 11, 23, 4, 20};
+        System.out.println(output + eb.minEatingSpeed(piles2, 5)); // expected result: 30
+
+        int[] piles3 = {30, 11, 23, 4, 20};
+        System.out.println(output + eb.minEatingSpeed(piles3, 6));
+    }
 }
