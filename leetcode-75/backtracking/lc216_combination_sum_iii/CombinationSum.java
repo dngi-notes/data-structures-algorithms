@@ -14,11 +14,11 @@ public class CombinationSum {
      * order.
      */
     public List<List<Integer>> combinationSum3(int k, int n) {
-        List<List<Integer>> combinations = new ArrayList<>();
-        getCombinations(combinations, new ArrayList<>(), k, n, 1);
-        return combinations;
-    }
-
+            List<List<Integer>> combinations = new ArrayList<>();
+            getCombinations(combinations, new ArrayList<>(), k, n, 1);
+            return combinations;
+        }
+    
     private void getCombinations(List<List<Integer>> combinations, List<Integer> combination, int k, int n, int start) {
         if(combination.size() == k && n == 0) {
             combinations.add(new ArrayList<>(combination));
@@ -30,5 +30,14 @@ public class CombinationSum {
             getCombinations(combinations, combination, k, n - i, i + 1);
             combination.remove(combination.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        CombinationSum cs = new CombinationSum();
+        String output = "Output: ";
+
+        System.out.println(output + cs.combinationSum3(2, 7)); // expected: [[1, 6], [2, 5], [3, 4]]
+
+        System.out.println(output + cs.combinationSum3(8, 1)); // expected: [[]], since it's impossible to make 1 with 8 digits
     }
 }
