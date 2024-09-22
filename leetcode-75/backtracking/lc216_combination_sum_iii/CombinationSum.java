@@ -30,6 +30,12 @@ public class CombinationSum {
             getCombinations(combinations, combination, k, n - i, i + 1);
             combination.remove(combination.size() - 1);
         }
+
+        /*
+         * Time Complexity - O(C(9, k)) or O(9 choose k), where we have nine elements and we can only choose k
+         * Space Complexity - O(k * C(9, k)), since k is the max recursion depth, and we store each combination in the list `combination`
+         */
+        
     }
 
     public static void main(String[] args) {
