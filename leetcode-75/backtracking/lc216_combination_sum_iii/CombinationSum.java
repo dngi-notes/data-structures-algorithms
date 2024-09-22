@@ -39,5 +39,7 @@ public class CombinationSum {
         System.out.println(output + cs.combinationSum3(2, 7)); // expected: [[1, 6], [2, 5], [3, 4]]
 
         System.out.println(output + cs.combinationSum3(8, 1)); // expected: [[]], since it's impossible to make 1 with 8 digits
+
+        System.out.println(output + cs.combinationSum3(4, 10)); // expected: [[1, 2, 3, 4]]
     }
 }
