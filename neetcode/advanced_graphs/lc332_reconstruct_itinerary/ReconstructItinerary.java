@@ -69,5 +69,11 @@ public class ReconstructItinerary {
             Arrays.asList("ATL", "SFO")
         );
         System.out.println(output + ri.findItinerary(tickets2));
+
+        List<List<String>> tickets3 = null;
+        System.out.println(output + ri.findItinerary(tickets3));
+
+        List<List<String>> tickets4 = Arrays.asList();
+        System.out.println(output + ri.findItinerary(tickets4));;
     }
 }
