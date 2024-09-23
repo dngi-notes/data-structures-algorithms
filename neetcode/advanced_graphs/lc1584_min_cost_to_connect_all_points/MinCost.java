@@ -60,5 +60,8 @@ public class MinCost {
 
         int[][] points1 = {{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}};
         System.out.println(output + mc.minCostConnectPoints(points1));
+
+        int[][] points2 = {{3, 12}, {-2, 5}, {-4, 1}};
+        System.out.println(output + mc.minCostConnectPoints(points2));
     }
 }
