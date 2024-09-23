@@ -51,6 +51,15 @@ public class ReconstructItinerary {
 
     public static void main(String[] args) {
         ReconstructItinerary ri = new ReconstructItinerary();
+        String output = "Output: ";
         
+        List<List<String>> tickets1 = Arrays.asList(
+            Arrays.asList("MUC", "LHR"),
+            Arrays.asList("JFK", "MUC"),
+            Arrays.asList("SFO", "SJC"),
+            Arrays.asList("LHR", "SFO")
+        );
+
+        System.out.println(output + ri.findItinerary(tickets1));
     }
 }
