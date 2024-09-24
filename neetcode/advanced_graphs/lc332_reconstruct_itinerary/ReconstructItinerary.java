@@ -45,7 +45,7 @@ public class ReconstructItinerary {
     }
 
     /*
-     * Time Complexity: O(E log E)
+     * Time Complexity: O(E log V)
      * Space Complexity: O(V + E)
      */
 
