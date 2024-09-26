@@ -60,7 +60,12 @@ public class NetworkDelay {
                 }
             }
         }
-        int maxTime = Arrays.stream(distance).skip(1).max().getAsInt(); // gets the time skipping our initial at dist[0] since nodes are 1 to n
+        int maxTime = Arrays.stream(distance).skip(1).max().getAsInt(); 
         return maxTime == Integer.MAX_VALUE ? -1 : maxTime;
     }
+
+    /*
+     * Time Complexity: O(E log(V))
+     * Space Complexity: O(V + E), due to the hashmap
+     */
 }
