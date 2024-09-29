@@ -21,6 +21,10 @@ public class SwimInRisingWater {
     private static final int[] Y_DIR = { 0, 0, -1, 1 };
 
     public int swimInWater(int[][] grid) {
+        if(grid == null || grid.length == 0 || grid[0].length == 0) {
+            return -1;
+        }
+
         int n = grid.length;
 
         // store {maxElevation so far, row, col}
@@ -53,5 +57,9 @@ public class SwimInRisingWater {
         }
 
         return -1;
+    }
+
+    public static void main(String[] args) {
+        
     }
 }
