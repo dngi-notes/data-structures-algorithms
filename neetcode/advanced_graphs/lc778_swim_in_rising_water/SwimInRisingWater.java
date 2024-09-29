@@ -23,6 +23,35 @@ public class SwimInRisingWater {
     public int swimInWater(int[][] grid) {
         int n = grid.length;
 
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]); // store {maxElevation so far, row, col}
+        // store {maxElevation so far, row, col}
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
+        boolean[][] visited = new boolean[n][n];
+        
+        // starting from the top left square {0, 0}
+        minHeap.offer(new int[]{grid[0][0], 0, 0}); // storing the inital max elevation so far, row and col
+        visited[0][0] = true; 
+
+        // modified dijkstra's
+        while(!minHeap.isEmpty()) {
+            int[] current = minHeap.poll();
+            int time = current[0], row = current[1], col = current[2];
+
+            // if we reach the bottom right square, return the current max time
+            if(row == n - 1 && col == n - 1) {
+                return time;
+            }
+
+            for(int i = 0; i < 4; i++) {
+                int newRow = row + X_DIR[i];
+                int newCol = col + Y_DIR[i];
+
+                if(newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && !visited[newRow][newCol]) {
+                    visited[newRow][newCol] = true;
+                    minHeap.offer(new int[]{Math.max(time, grid[newRow][newCol]), newRow, newCol});
+                }
+            }
+        }
+
+        return -1;
     }
 }
