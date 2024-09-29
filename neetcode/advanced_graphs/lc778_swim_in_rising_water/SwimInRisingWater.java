@@ -21,7 +21,7 @@ public class SwimInRisingWater {
     private static final int[] Y_DIR = { 0, 0, -1, 1 };
 
     public int swimInWater(int[][] grid) {
-        if(grid == null || grid.length == 0 || grid[0].length == 0) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
             return -1;
         }
 
@@ -30,28 +30,28 @@ public class SwimInRisingWater {
         // store {maxElevation so far, row, col}
         PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> a[0] - b[0]);
         boolean[][] visited = new boolean[n][n];
-        
+
         // starting from the top left square {0, 0}
-        minHeap.offer(new int[]{grid[0][0], 0, 0}); // storing the inital max elevation so far, row and col
-        visited[0][0] = true; 
+        minHeap.offer(new int[] { grid[0][0], 0, 0 }); // storing the inital max elevation so far, row and col
+        visited[0][0] = true;
 
         // modified dijkstra's
-        while(!minHeap.isEmpty()) {
+        while (!minHeap.isEmpty()) {
             int[] current = minHeap.poll();
             int time = current[0], row = current[1], col = current[2];
 
             // if we reach the bottom right square, return the current max time
-            if(row == n - 1 && col == n - 1) {
+            if (row == n - 1 && col == n - 1) {
                 return time;
             }
 
-            for(int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) {
                 int newRow = row + X_DIR[i];
                 int newCol = col + Y_DIR[i];
 
-                if(newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && !visited[newRow][newCol]) {
+                if (newRow >= 0 && newRow < n && newCol >= 0 && newCol < n && !visited[newRow][newCol]) {
                     visited[newRow][newCol] = true;
-                    minHeap.offer(new int[]{Math.max(time, grid[newRow][newCol]), newRow, newCol});
+                    minHeap.offer(new int[] { Math.max(time, grid[newRow][newCol]), newRow, newCol });
                 }
             }
         }
@@ -60,6 +60,14 @@ public class SwimInRisingWater {
     }
 
     public static void main(String[] args) {
-        
+        SwimInRisingWater sirw = new SwimInRisingWater();
+        String output = "Output: ";
+
+        int[][] grid1 = { { 0, 2 }, { 1, 3 } };
+        System.out.println(output + sirw.swimInWater(grid1));
+
+        int[][] grid2 = { { 0, 1, 2, 3, 4 }, { 24, 23, 22, 21, 5 }, { 12, 13, 14, 15, 16 }, { 11, 17, 18, 19, 20 },
+                { 10, 9, 8, 7, 6 } };
+        System.out.println(output + sirw.swimInWater(grid2));
     }
 }
