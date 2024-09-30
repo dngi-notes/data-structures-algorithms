@@ -93,5 +93,8 @@ public class AlienDictionary {
 
         String[] words1 = {"z", "o"};
         System.out.println(output + ad.alienDictionary(words1));
+
+        String[] words2 = {"hrn", "hrf", "er", "enn", "rfnn"};
+        System.out.println(output + ad.alienDictionary(words2));
     }
 }
