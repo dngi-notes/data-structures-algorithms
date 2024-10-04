@@ -26,6 +26,11 @@ public class MinCostClimbingStairs {
         return Math.min(dp[n -1], dp[n - 2]);
     }
 
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
+
     public static void main(String[] args) {
         MinCostClimbingStairs mccs = new MinCostClimbingStairs();
         String output = "Output: ";
