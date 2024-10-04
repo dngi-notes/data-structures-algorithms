@@ -1,6 +1,5 @@
 package neetcode.dynamic_programming.lc746_min_cost_climbing_stairs;
 
-import java.util.*;
 
 public class MinCostClimbingStairs {
     /*
