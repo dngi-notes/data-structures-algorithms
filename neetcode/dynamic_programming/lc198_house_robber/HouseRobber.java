@@ -50,5 +50,8 @@ public class HouseRobber {
 
         int[] nums1 = {1, 2, 3, 1};
         System.out.println(output + hr.rob(nums1));
+
+        int[] nums2 = {2, 7, 9, 3, 1};
+        System.out.println(output + hr.rob(nums2));
     }
 }
