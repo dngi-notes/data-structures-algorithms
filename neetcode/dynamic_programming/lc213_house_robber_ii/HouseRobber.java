@@ -37,4 +37,18 @@ public class HouseRobber {
 
         return memo[0];
     }
+
+    public static void main(String[] args) {
+        HouseRobber hr = new HouseRobber();
+        String output = "Output: ";
+
+        int[] nums1 = {2, 3, 2};
+        System.out.println(output + hr.rob(nums1));
+
+        int[] nums2 = {1, 2, 3, 1};
+        System.out.println(output + hr.rob(nums2));
+
+        int[] nums3 = {1, 2};
+        System.out.println(output + hr.rob(nums3));
+    }
 }
