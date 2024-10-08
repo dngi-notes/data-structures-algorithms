@@ -31,7 +31,17 @@ public class LongestPalindromicSubstring {
                 }
             }
         }
-
         return s.substring(sIndex, sIndex + maxLength);
+    }
+
+    public static void main(String[] args) {
+        LongestPalindromicSubstring lps = new LongestPalindromicSubstring();
+        String output = "Output: ";
+
+        System.out.println(output + lps.longestPalindrome("babad")); // expected bab
+        System.out.println(output + lps.longestPalindrome("cbbd")); // expected bb
+
+        System.out.println(output + lps.longestPalindrome("a")); // expected a
+        System.out.println(output + lps.longestPalindrome("")); // expected ""
     }
 }
