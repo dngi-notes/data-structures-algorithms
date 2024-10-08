@@ -22,8 +22,8 @@ public class LongestPalindromicSubstring {
                     memo[i] = true;
 
                     if(j - i + 1 > maxLength) {
-                        sIndex = i;
                         maxLength = j - i + 1;
+                        sIndex = i;
                     }
 
                 } else {
@@ -43,5 +43,7 @@ public class LongestPalindromicSubstring {
 
         System.out.println(output + lps.longestPalindrome("a")); // expected a
         System.out.println(output + lps.longestPalindrome("")); // expected ""
+        System.out.println(output + lps.longestPalindrome("aacabdkacaa")); // expected "aca"
+        
     }
 }
