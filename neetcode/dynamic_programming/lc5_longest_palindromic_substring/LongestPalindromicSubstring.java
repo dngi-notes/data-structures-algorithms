@@ -20,8 +20,8 @@ public class LongestPalindromicSubstring {
          * Three Subproblems:
          * 1. substrings of length 1 are always palindromes
          * 2. substrings of length 2 are palindromes if the two characters are the same
-         * 3. substrings of length 3 are palindromes if the at least the left and right
-         * character are the same
+         * 3. substrings of length 3 or more are palindromes if the at least the left and right
+         * character are the same and the substring within is a palindrome
          */
 
         // subproblem 1
