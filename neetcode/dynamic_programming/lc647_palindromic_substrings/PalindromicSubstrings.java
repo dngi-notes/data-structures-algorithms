@@ -47,6 +47,11 @@ public class PalindromicSubstrings {
         return totalSubstrings;
     }
 
+    /*
+     * Time Complexity - O(n ^ 2), due to nested for loop
+     * Space Complexity - O(n ^ 2), due to n * n array memo
+     */
+
     public static void main(String[] args) {
         PalindromicSubstrings ps = new PalindromicSubstrings();
         String output = "Output: ";
