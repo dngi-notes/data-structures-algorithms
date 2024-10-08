@@ -34,7 +34,7 @@ public class PalindromicSubstrings {
         }
 
         for(int len = 3; len <= n; len++) {
-            for(int i = 0; i < len - n + 1; i++) {
+            for(int i = 0; i < n - len + 1; i++) {
                 int j = i + len - 1;
 
                 if(s.charAt(i) == s.charAt(j) && memo[i + 1][j - 1]) {
@@ -53,7 +53,8 @@ public class PalindromicSubstrings {
 
         System.out.println(output + ps.countSubstrings("abc")); // expected 3
         System.out.println(output + ps.countSubstrings("aaa")); // expected 6
-        System.out.println(output + ps.countSubstrings("aacabdkacaa")); // expected 14
+        System.out.println(output + ps.countSubstrings("aaaaa")); // expected 15
+        System.out.println(output + ps.countSubstrings("aacabdkacaa")); // expected 13
         System.out.println(output + ps.countSubstrings("")); // expected 0
         System.out.println(output + ps.countSubstrings(null)); // expected 0
         
