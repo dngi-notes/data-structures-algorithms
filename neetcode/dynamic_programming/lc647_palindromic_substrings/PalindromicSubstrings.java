@@ -19,8 +19,6 @@ public class PalindromicSubstrings {
         }
 
         boolean[][] memo = new boolean[n][n];
-        int startIndex = 0;
-        int maxLength = 1;
         int totalSubstrings = 0;
         
         for(int i = 0; i < n; i++) {
@@ -31,8 +29,6 @@ public class PalindromicSubstrings {
         for(int i = 0; i < n - 1; i++) {
             if(s.charAt(i) == s.charAt(i + 1)) {
                 memo[i][i+1] = true;
-                startIndex = i;
-                maxLength = 2;
                 totalSubstrings++;
             }
         }
@@ -43,12 +39,7 @@ public class PalindromicSubstrings {
 
                 if(s.charAt(i) == s.charAt(j) && memo[i + 1][j - 1]) {
                     memo[i][j] = true;
-
-                    if(len > maxLength) {
-                        startIndex = i;
-                        maxLength = len;
-                        totalSubstrings++;
-                    }
+                    totalSubstrings++;
                 }
             }
         }
@@ -63,6 +54,8 @@ public class PalindromicSubstrings {
         System.out.println(output + ps.countSubstrings("abc")); // expected 3
         System.out.println(output + ps.countSubstrings("aaa")); // expected 6
         System.out.println(output + ps.countSubstrings("aacabdkacaa")); // expected 14
+        System.out.println(output + ps.countSubstrings("")); // expected 0
+        System.out.println(output + ps.countSubstrings(null)); // expected 0
         
     }
 }
