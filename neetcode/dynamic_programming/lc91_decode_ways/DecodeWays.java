@@ -43,6 +43,10 @@ public class DecodeWays {
         DecodeWays dw = new DecodeWays();
         String output = "Output: ";
 
-        System.out.println(output + dw.numDecodings("12"));
+        System.out.println(output + dw.numDecodings("12")); // expected 2
+        System.out.println(output + dw.numDecodings("226")); // expected 3
+        System.out.println(output + dw.numDecodings("06")); // expected 0
+        System.out.println(output + dw.numDecodings(null)); // expected 0
+
     }
 }
