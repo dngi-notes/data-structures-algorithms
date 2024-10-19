@@ -34,4 +34,12 @@ public class TopKElements {
 
         return result;
     }
+
+    public static void main(String[] args) {
+        TopKElements tke = new TopKElements();
+        String output = "Output: ";
+
+        int[] nums1 = {1, 2, 2, 3, 3, 3};
+        System.out.println(output + Arrays.toString(tke.topKFrequent(nums1, 2)));
+    }
 }
