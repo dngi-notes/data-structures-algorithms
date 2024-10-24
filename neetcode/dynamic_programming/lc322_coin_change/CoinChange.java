@@ -51,5 +51,7 @@ public class CoinChange {
         int[] coins4 = null;
         System.out.println(output + cc.coinChange(coins4, 10)); // expected -1
         
+        int[] coins5 = {1, 2, 5};
+        System.out.println(output + cc.coinChange(coins5, 11));
     }
 }
