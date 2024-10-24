@@ -1,5 +1,7 @@
 package neetcode.dynamic_programming.lc322_coin_change;
 
+import java.util.*;
+
 public class CoinChange {
     /*
      * You are given an integer array coins representing coins of different
@@ -12,44 +14,34 @@ public class CoinChange {
      * You may assume that you have an unlimited number of each coin.
      */
     public int coinChange(int[] coins, int amount) {
-        if(coins == null || coins.length <= 0) {
-            return 0;
+        /*
+         * dynamic programming solution
+         * - use a memo/dp array to store the minimum amount of coins needed to make up
+         * amount 'i'
+         */
+        int[] dp = new int[amount + 1];
+        dp[0] = 0; // it takes 0 coins to make up the amount 0
+
+        // fill the array's values with the worst case minimum (int max in this case)
+        Arrays.fill(dp, 1, dp.length, Integer.MAX_VALUE);
+
+        // build from 1 to the target amount 'amount'
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (i - coin >= 0 && dp[i - coin] != Integer.MAX_VALUE) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
+            }
         }
 
-        if(amount == 0) {
-            return 0;
-        }
-
-        int n = coins.length;
-        int result = coinChangeHelper(coins, n, amount);
-
-        return result == Integer.MAX_VALUE ? -1 : result;
-    }
-
-    private int coinChangeHelper(int[] coins, int n, int amount) {
-        if(amount == 0) {
-            return 0;
-        }
-
-        if(amount < 0 || n <= 0) {
-            return Integer.MAX_VALUE;
-        }
-
-        int includeCoin = coinChangeHelper(coins, n, amount - coins[n - 1]);
-        int excludeCoin = coinChangeHelper(coins, n - 1, amount);
-
-        if(includeCoin != Integer.MAX_VALUE) {
-            includeCoin++;
-        }
-
-        return Math.min(includeCoin, excludeCoin);
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
     }
 
     public static void main(String[] args) {
         CoinChange cc = new CoinChange();
         String output = "Output: ";
 
-        int[] coins1 = {1, 5, 10};
+        int[] coins1 = { 1, 5, 10 };
         System.out.println(output + cc.coinChange(coins1, 12));
     }
 }
