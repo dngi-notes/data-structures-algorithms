@@ -13,17 +13,17 @@ public class TreeNode {
     /**
      * The value stored in the node.
      */
-    public int val;
+    private int val;
 
     /**
      * The left child node.
      */
-    public TreeNode left;
+    private TreeNode left;
 
     /**
      * The right child node.
      */
-    public TreeNode right;
+    private TreeNode right;
 
     /**
      * Constructs an empty {@code TreeNode}.
