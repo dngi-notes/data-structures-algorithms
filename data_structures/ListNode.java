@@ -32,7 +32,7 @@ public class ListNode {
             ListNode current = queue.poll();
 
             if(current == null) {
-                result.append("");
+                result.append("null");
             } else {
                 result.append(current.val).append(",");
                 queue.offer(current.next);
