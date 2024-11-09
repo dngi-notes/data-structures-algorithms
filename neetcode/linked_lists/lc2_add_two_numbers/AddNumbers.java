@@ -12,5 +12,14 @@ public class AddNumbers {
      * You may assume the two numbers do not contain any leading zero, except the
      * number 0 itself.
      */
-    
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        int carry = 0;
+
+        while(l1 != null || l2 != null || carry != 0) {
+            int digit1 = (l1 != null) ? l1.val : 0;
+            int digit2 = (l1 != null) ? l2.val : 0; 
+        }
+    }
 }
