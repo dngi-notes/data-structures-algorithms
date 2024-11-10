@@ -35,4 +35,19 @@ public class AddNumbers {
 
         return dummy.next;
     }
+
+    public static void main(String[] args) {
+        AddNumbers ad = new AddNumbers();
+        String output = "Output: ";
+
+        ListNode l1 = new ListNode(1);
+        l1.next = new ListNode(0);
+        l1.next.next = new ListNode(1);
+
+        ListNode l2 = new ListNode(2);
+        l2.next = new ListNode(0);
+        l2.next.next = new ListNode(2);
+
+        System.out.println(output + ad.addTwoNumbers(l1, l2)); // expected: 3, 0, 3
+    }
 }
