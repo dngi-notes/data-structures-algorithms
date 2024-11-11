@@ -46,7 +46,7 @@ public class HouseRobber {
 
     // adding recursive solution:
     public int robRecursive(int[] nums) {
-
+        return robRecursiveHelper(nums, nums.length - 1);
     }
 
     public int robRecursiveHelper(int[] nums, int index) {
