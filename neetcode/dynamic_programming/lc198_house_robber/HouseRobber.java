@@ -44,6 +44,23 @@ public class HouseRobber {
         return dp[0];
     }
 
+    // adding recursive solution:
+    public int robRecursive(int[] nums) {
+
+    }
+
+    public int robRecursiveHelper(int[] nums, int index) {
+        if(index < 0) {
+            return 0;
+        }
+
+        if(index == 0) {
+            return nums[0];
+        }
+
+        return Math.max(nums[index] + robRecursiveHelper(nums, index - 2), robRecursiveHelper(nums, index - 1));
+    }
+
     public static void main(String[] args) {
         HouseRobber hr = new HouseRobber();
         String output = "Output: ";
