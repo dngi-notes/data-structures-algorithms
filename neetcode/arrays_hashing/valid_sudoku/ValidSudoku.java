@@ -18,47 +18,7 @@ public class ValidSudoku {
      */
 
     public boolean isValidSudoku(char[][] board) {
-        if (board == null || board.length == 0) {
-            return false;
-        }
-
-        for (int i = 0; i < 9; i++) {
-            Set<Character> rows = new HashSet<>();
-            Set<Character> cols = new HashSet<>();
-            Set<Character> boxes = new HashSet<>();
-
-            for(int j = 0; j < 9; j++) {
-                char row = board[i][j];
-                char col = board[j][i];
-                char box = board[3 * (i / 3) + (j / 3)][3 * (i % 3) + (j % 3)];
-
-                if(row != '.') {
-                    if(rows.contains(row)) {
-                        return false;
-                    } else {
-                        rows.add(row);
-                    }
-                }
-
-                if(col != '.') {
-                    if(cols.contains(col)) {
-                        return false;
-                    }  else {
-                        cols.add(col);
-                    }
-                }
-
-                if(box != '.') {
-                    if(boxes.contains(box)) {
-                        return false;
-                    } else {
-                        rows.add(row);
-                    }
-                }
-            }
-        }
-
-        return true;
+        
     }
 
     public static void main(String[] args) {
