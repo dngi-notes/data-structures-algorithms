@@ -37,7 +37,7 @@ public class CarFleet {
 
         for(int i = 0; i < cars.length; i++) {
             int[] car = cars[i];
-            double timeToReachTarget = (double) (target - car[0]) / 2;
+            double timeToReachTarget = (double) (target - car[0]) / car[1];
 
             if(fleetTimes.isEmpty() || timeToReachTarget > fleetTimes.peek()) {
                 fleetTimes.push(timeToReachTarget);
@@ -45,5 +45,14 @@ public class CarFleet {
         }
 
         return fleetTimes.size();
+    }
+
+    public static void main(String[] args) {
+        CarFleet cf = new CarFleet();
+        String output = "Output: ";
+
+        int[] pos1 = {10, 8, 0, 5, 3};
+        int[] speed1 = {2, 4, 1, 1, 3};
+        System.out.println(output + cf.carFleet(12, pos1, speed1));
     }
 }
