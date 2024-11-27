@@ -49,8 +49,5 @@ public class DailyTemperatures {
 
         int[] temp3 = {};
         System.out.println(output + Arrays.toString(dt.dailyTemperatures(temp3)));
-
-        int[] temp4 = null;
-        System.out.println(output + Arrays.toString(dt.dailyTemperatures(temp4)));
     }
 }
