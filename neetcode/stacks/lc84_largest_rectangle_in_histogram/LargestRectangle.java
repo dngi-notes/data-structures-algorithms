@@ -8,7 +8,7 @@ public class LargestRectangle {
         Stack<Integer> bars = new Stack<>();
         int maxArea = 0;
 
-        for(int i = 0; i < heights.length; i++) {
+        for(int i = 0; i <= heights.length; i++) {
             int currentHeight = (i == heights.length) ? 0 : heights[i];
 
             while(!bars.isEmpty() && currentHeight < heights[bars.peek()]) {
