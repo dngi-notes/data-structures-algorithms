@@ -14,5 +14,11 @@ public class EatingBananas {
                     .max()
                     .getAsInt();
         int minimumK = right;
+
+        while(left <= right) {
+            int k = left + (right - left) / 2;
+
+            int totalTime = 0;
+        }
     }
 }
