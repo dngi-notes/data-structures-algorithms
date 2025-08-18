@@ -14,24 +14,23 @@ public class CoinChange {
      * You may assume that you have an unlimited number of each coin.
      */
     public int coinChange(int[] coins, int amount) {
-        if(coins == null) {
-            return -1;
+        if (coins == null || coins.length == 0) {
+            return - 1;
         }
 
         int[] dp = new int[amount + 1];
         dp[0] = 0;
-
         Arrays.fill(dp, 1, dp.length, Integer.MAX_VALUE);
 
-        for(int i = 1; i <= amount; i++) {
-            for(int coin : coins) {
-                if(i - coin >= 0 && dp[i - coin] != Integer.MAX_VALUE) {
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (i - coin >= 0 && dp[i - coin] != Integer.MAX_VALUE) {
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1);
                 }
             }
         }
 
-        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+        return dp[amount] != Integer.MAX_VALUE ? dp[amount] : -1;
     }
 
     public static void main(String[] args) {
@@ -52,6 +51,6 @@ public class CoinChange {
         System.out.println(output + cc.coinChange(coins4, 10)); // expected -1
         
         int[] coins5 = {1, 2, 5};
-        System.out.println(output + cc.coinChange(coins5, 11));
+        System.out.println(output + cc.coinChange(coins5, 11)); // expected 3
     }
 }
