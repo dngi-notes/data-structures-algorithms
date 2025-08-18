@@ -20,5 +20,7 @@ public class EatingBananas {
 
             int totalTime = 0;
         }
+
+        return 0;
     }
 }
