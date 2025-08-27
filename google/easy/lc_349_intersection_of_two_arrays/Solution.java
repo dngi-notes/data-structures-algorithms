@@ -1,4 +1,4 @@
-package google.lc_349_intersection_of_two_arrays;
+package google.easy.lc_349_intersection_of_two_arrays;
 
 import java.util.HashSet;
 import java.util.Set;

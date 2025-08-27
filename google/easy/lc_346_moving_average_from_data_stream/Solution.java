@@ -1,4 +1,4 @@
-package google.lc_346_moving_average_from_data_stream;
+package google.easy.lc_346_moving_average_from_data_stream;
 
 import java.util.Queue;
 import java.util.LinkedList;

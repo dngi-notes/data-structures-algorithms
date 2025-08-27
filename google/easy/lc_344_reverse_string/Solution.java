@@ -1,4 +1,4 @@
-package google.lc_344_reverse_string;
+package google.easy.lc_344_reverse_string;
 
 /**
  * Write a function that reverses a string. The input string is given as an

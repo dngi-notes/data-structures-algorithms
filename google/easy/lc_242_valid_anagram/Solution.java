@@ -1,4 +1,4 @@
-package google.lc_242_valid_anagram;
+package google.easy.lc_242_valid_anagram;
 
 /**
  * Given two strings s and t, return true if t is an of s, and false otherwise.

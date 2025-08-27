@@ -1,4 +1,4 @@
-package google.lc_225_implement_stack_with_queues;
+package google.easy.lc_225_implement_stack_with_queues;
 
 import java.util.LinkedList;
 import java.util.Queue;

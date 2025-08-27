@@ -1,4 +1,4 @@
-package google.lc_205_isomorphic_strings;
+package google.easy.lc_205_isomorphic_strings;
 
 import java.util.Map;
 import java.util.HashMap;

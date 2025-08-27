@@ -1,4 +1,4 @@
-package google.lc_268_missing_number;
+package google.easy.lc_268_missing_number;
 
 /**
  * Given an array nums containing n distinct numbers in the range [0, n],
