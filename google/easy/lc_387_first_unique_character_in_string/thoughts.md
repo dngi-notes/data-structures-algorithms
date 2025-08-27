@@ -5,3 +5,5 @@
 
 this works because queues are FIFO, so the first characters we encounter will come out first
 and also the `String.indexOf(ch)` function will return the first occurrence of a char in a string
+
+tc/sc: $O(n)$
