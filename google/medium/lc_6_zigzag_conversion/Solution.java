@@ -44,8 +44,9 @@ import java.util.Arrays;
 
 public class Solution {
     public String convert(String s, int numRows) {
-        if (s == null || s.isEmpty()) return "";
+        if (s == null || s.isEmpty() || numRows == 0) return "";
         if (s.length() == 1 || numRows == 1) return s;
+
 
         char[] str1 = s.toCharArray();
         int len = s.length();
@@ -53,11 +54,11 @@ public class Solution {
         String[] arr = new String[numRows];
         Arrays.fill(arr, "");
 
-        int row = 0;
         boolean down = true;
-
+        int row = 0;
         for (int i = 0; i < len; i++) {
             arr[row] += str1[i];
+
             if (row == numRows - 1) {
                 down = false;
             } else if (row == 0) {
@@ -72,8 +73,8 @@ public class Solution {
         }
 
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < numRows; i++) {
-            result.append(arr[i]);
+        for (String str : arr) {
+            result.append(str);
         }
 
         return result.toString();
