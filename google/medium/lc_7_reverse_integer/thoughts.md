@@ -29,4 +29,6 @@ original = `1 / 10 = 0`
 
 *loop terminates here, result = 321*
 
+time complexity $O(n)$ &mdash; where $n$ is the length of the number \
+space complexity $O(1)$
 
