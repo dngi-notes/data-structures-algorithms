@@ -48,6 +48,7 @@ public class Solution {
         Solution s = new Solution();
 
         System.out.println(s.maxArea(new int[]{1, 8, 6, 2, 5, 3, 8, 3, 7})); // expected: 49
+        System.out.println(s.maxArea(new int[]{1, 8, 6, 2, 5, 3, 8, 3, 8})); // expected: 56
         System.out.println(s.maxArea(new int[]{1, 1})); // expected: 1
         System.out.println(s.maxArea(null)); // expected: 0
         System.out.println(s.maxArea(new int[]{})); // expected: 0
