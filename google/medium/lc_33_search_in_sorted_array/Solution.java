@@ -21,35 +21,37 @@ public class Solution {
             return -1;
         }
 
-        int left = 0;
-        int right = nums.length - 1;
+        int low = 0;
+        int high = nums.length - 1;
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
 
             if (nums[mid] == target) {
                 return mid;
             }
 
-            if (nums[left] < nums[mid]) {
-                if (nums[left] <= target && target <= nums[mid]) {
-                    right = mid - 1;
+            if (nums[low] < nums[mid]) {
+                if (nums[low] <= target && target < nums[mid]) {
+                    high = mid - 1;
                 } else {
-                    left = mid  + 1;
+                    low = mid + 1;
                 }
             } else {
-                if (nums[mid] < target && target < nums[right]) {
-                    left = mid + 1;
+                if (nums[mid] <= target && target < nums[high]) {
+                    low = mid + 1;
                 } else {
-                    right = mid - 1;
+                    high = mid - 1;
                 }
             }
         }
 
-        return -1;
+        return - 1;
     }
 
     public static void main(String[] args) {
-        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0));
+        System.out.println(search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0)); // expected: 4
+        System.out.println(search(new int[]{2, 3, 4, 5, 6, 7, 8}, 2)); // expected: 0
+        System.out.println(search(new int[]{0, 1, 2, 3, 4, 5}, 7)); // expected: -1
     }
 }
