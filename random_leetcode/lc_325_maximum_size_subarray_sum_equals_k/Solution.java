@@ -75,6 +75,6 @@ public class Solution {
 
         int[] nums2 = new int[]{-2, -1, 2, 1};
         int k2 = 1;
-        System.out.println(s.sum(nums2, k2)); // expected output: 3
+        System.out.println(s.sum(nums2, k2)); // expected output: 2
     }
 }
