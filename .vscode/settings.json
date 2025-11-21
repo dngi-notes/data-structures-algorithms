@@ -8,5 +8,6 @@
   "editor.acceptSuggestionOnEnter": "off",
   "editor.tabCompletion": "off",
   "editor.wordBasedSuggestions": "off",
-  "editor.parameterHints.enabled": false
+  "editor.parameterHints.enabled": false,
+  "java.debug.settings.onBuildFailureProceed": true
 }
