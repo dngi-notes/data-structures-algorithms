@@ -53,6 +53,15 @@ public class TreeNode {
         this.right = right;
     }
 
+
+    /**
+     * Creates a sample {@code TreeNode} with a root and children
+     */
+    public static TreeNode createSampleTreeNode() {
+        return new TreeNode(1, new TreeNode(2), new TreeNode(3));
+        
+    }
+
     /**
      * Returns a string representation of the {@code TreeNode}.
      * The format is: val -> (left child, right child).
