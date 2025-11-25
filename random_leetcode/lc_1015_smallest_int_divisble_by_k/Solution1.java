@@ -29,6 +29,7 @@ public class Solution1 {
         List<Integer> result = new ArrayList<>();
         int rem = d % n;
         result.add(rem);
+        System.out.println(rem);
         int i = 1;
         while (i < n) {
             if (rem == 0) break;
