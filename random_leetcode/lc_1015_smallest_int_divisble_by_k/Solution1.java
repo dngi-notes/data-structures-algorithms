@@ -34,6 +34,7 @@ public class Solution1 {
             if (rem == 0) break;
             rem = (rem * 10 + d) % n;
             result.add(rem);
+            System.out.println(rem);
             i++;
         }
 
