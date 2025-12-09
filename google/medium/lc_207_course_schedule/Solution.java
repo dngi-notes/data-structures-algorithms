@@ -49,38 +49,39 @@ public class Solution {
             adj.add(new ArrayList<>());
         }
 
+        int[] inDegree = new int[numCourses];
+
         for (int[] pre : prerequisites) {
             int prereq = pre[1];
             int req = pre[0];
             adj.get(prereq).add(req);
+            inDegree[req]++;
         }
 
-        Set<Integer> visited = new HashSet<>();
-        Set<Integer> visiting = new HashSet<>();
-        for (int c = 0; c < numCourses; c++) {
-            if (hasCycle(c, adj, visiting, visited)) {
-                return false;
-            }
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 0; i < numCourses; i++) {
+            if (inDegree[i] == 0) q.add(i);
         }
 
-        return true;
-    }
+        List<Integer> topologicalOrder = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int req = q.poll();
+            topologicalOrder.add(req);
 
-    private boolean hasCycle(int node, List<List<Integer>> adj, Set<Integer> visiting, Set<Integer> visited) {
-        visiting.add(node);
-
-        for (int nei : adj.get(node)) {
-            if (visiting.contains(nei)) {
-                return true;
-            } else if (!visited.contains(nei)) {
-                if (hasCycle(nei, adj, visiting, visited)) {
-                    return true;
+            for (int nei : adj.get(req)) {
+                inDegree[nei]--;
+                if (inDegree[nei] == 0) {
+                    q.add(nei);
                 }
             }
         }
 
-        visiting.remove(node);
-        visited.add(node);
-        return false;
+        return topologicalOrder.size() == numCourses;
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        System.out.println(sol.canFinish(2, new int[][]{{1, 0}, {0, 1}})); // expected false
+        System.out.println(sol.canFinish(2, new int[][]{{1, 0}})); // expected true
     }
 }
