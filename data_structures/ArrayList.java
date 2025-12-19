@@ -25,9 +25,7 @@ public class ArrayList<T> {
      */
     public void add(T obj) {
         if (size == elements.length) {
-            Object[] old = elements;
-            elements = new Object[elements.length * 2];
-            System.arraycopy(old, 0, elements, 0, size);
+            increaseCapacity();
         }
 
         elements[size] = obj;
@@ -51,9 +49,7 @@ public class ArrayList<T> {
      */
     @SuppressWarnings("unchecked")
     public T get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Invalid index");
-        }
+        checkBoundary(index);
 
         return (T) (elements[index]);
     }
@@ -65,9 +61,8 @@ public class ArrayList<T> {
      * @param value
      */
     public T set(int index, T value) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Invalid index");
-        }
+        checkBoundary(index);
+
         T oldValue = get(index);
         elements[index] = value;
         return oldValue;
@@ -78,5 +73,66 @@ public class ArrayList<T> {
      */
     public int size() {
         return size;
+    }
+
+    /**
+     * remove all elements
+     */
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            elements[i] = null;
+        }
+        size = 0;
+    }
+
+    /**
+     * removes the element at the specified position in the list. shifts any subsequent elements (subtracts one from their indices)
+     * @param index
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public T remove(int index) {
+        checkBoundary(index);
+
+        T removedEl = (T) (elements[index]);
+        for (int i = index; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
+        }
+
+        elements[size - 1] = null;
+        size--;
+        return removedEl;
+    }
+
+    public void add(int index, T value) {
+        checkBoundaryAdd(index);        
+        if (size == elements.length) {
+            increaseCapacity();
+        }
+
+        for (int i = size - 1; i >= index; i--) {
+            elements[i + 1] = elements[i];
+        }
+        
+        elements[index] = value;
+        size++;
+    }
+
+    private void checkBoundary(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+    }
+
+    private void checkBoundaryAdd(int index) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+    }
+
+    private void increaseCapacity() {
+        Object[] old = elements;
+        elements = new Object[elements.length * 2];
+        System.arraycopy(old, 0, elements, 0, size);
     }
 }
