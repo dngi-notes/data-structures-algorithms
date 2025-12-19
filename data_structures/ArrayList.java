@@ -1,9 +1,9 @@
 package data_structures;
+
 /**
  * personal implementation of a dynamic array (ArrayList)
- * includes functions (add, get, set, remove, size, isEmpty, clear, add(index), remove(value))
- * 
- * generics
+ * includes functions (add, get, set, remove, size, isEmpty, clear, add(index),
+ * remove(value))
  */
 public class ArrayList<T> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -20,11 +20,63 @@ public class ArrayList<T> {
     }
 
     /**
-     * add an element to the ArrayList (dynamic array)
+     * add an element
+     * @param obj
      */
     public void add(T obj) {
         if (size == elements.length) {
-            
+            Object[] old = elements;
+            elements = new Object[elements.length * 2];
+            System.arraycopy(old, 0, elements, 0, size);
         }
+
+        elements[size] = obj;
+        size++;
+    }
+    
+    /**
+     * check if arraylist is empty
+     * returns true if empty, else false
+     * @return
+     */
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    /**
+     * returns the value stored at the specified index
+     * if the index is invalid, it returns an exception
+     * @param index
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+
+        return (T) (elements[index]);
+    }
+
+    /**
+     * sets a value at an index as long as it valid
+     * else returns an exception
+     * @param index
+     * @param value
+     */
+    public T set(int index, T value) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        T oldValue = get(index);
+        elements[index] = value;
+        return oldValue;
+    }
+
+    /**
+     * size of arraylist
+     */
+    public int size() {
+        return size;
     }
 }
