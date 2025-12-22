@@ -1,4 +1,4 @@
-package algorithms.dfs.visit_all_nodes;
+package algorithms.dfs.visit_all_reachable_nodes;
 
 import java.util.*;
 
