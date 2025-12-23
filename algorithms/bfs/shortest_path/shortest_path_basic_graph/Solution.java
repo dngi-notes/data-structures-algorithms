@@ -1,4 +1,4 @@
-package algorithms.bfs.shortest_path.shortest_path_basic;
+package algorithms.bfs.shortest_path.shortest_path_basic_graph;
 
 import java.util.*;
 
