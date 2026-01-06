@@ -18,32 +18,24 @@ import java.util.*;
  * - if no runnable time, return -1;
  */
 public class TaskScheduler {
-    private PriorityQueue<Long> scheduler;
+    private TreeSet<Long> scheduler;
     private long currentTime;
     
     public TaskScheduler() {
-        this.scheduler = new PriorityQueue<>();
+        this.scheduler = new TreeSet<>();
         this.currentTime = 0;
     }
 
     public void submitTask(long time) {
-        scheduler.offer(time);
+        scheduler.add(time);
     }
 
     public long getNextTask() {
-        while (!scheduler.isEmpty() && currentTime > scheduler.peek()) {
-            scheduler.poll();
-        }
+        if (scheduler.isEmpty()) return -1;
 
-        long nextTask = -1;
-        if (scheduler.isEmpty()) {
-            return -1;
-        } else {
-            long nt = scheduler.poll();
-            nextTask = nt;
-            currentTime = nextTask;
-        }
-
+        long nextTask = scheduler.ceiling(currentTime);
+        scheduler.remove(nextTask);
+        currentTime = nextTask;
         return nextTask;
     }
 
